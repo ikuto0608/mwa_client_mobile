@@ -1,0 +1,10 @@
+<StackLayout>
+  <Label text="Home" class="h1 text-center"></Label>
+  <TextField *ngIf="!isLogined" [(ngModel)]="user.email" hint="Email" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
+  <TextField *ngIf="!isLogined" [(ngModel)]="user.password" hint="Password" secure="true"></TextField>
+  <Button *ngIf="!isLogined" text="Sign in" (tap)="signIn()"></Button>
+  <Button *ngIf="!isLogined" text="Sign up" (tap)="signUp()"></Button>
+
+  <Button *ngIf="isLogined" text="Test" (tap)="goTest()"></Button>
+  <Button *ngIf="isLogined" text="Profile" (tap)="goProfile()"></Button>
+</StackLayout>

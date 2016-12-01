@@ -1,0 +1,7 @@
+<ListView [items]="exam.markedTopics" class="list-group">
+  <template let-topic="item" let-indexOfTopic="index">
+    <GridLayout class="list-group-item">
+      <Label [text]="topic.sample"></Label>
+    </GridLayout>
+  </template>
+</ListView>

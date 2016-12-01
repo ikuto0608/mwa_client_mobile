@@ -1,0 +1,12 @@
+<GridLayout *ngIf="exam" columns="*,*" rows="*,*,*,*,*,*,*" toggleNavButton>
+  <Label [text]="exam.questions[questionIndex].sentence" col="0" row="0" colSpan="2" rowSpan="3" class="h2 p-15" textWrap="true"></Label>
+  <Button *ngFor="let answer of exam.questions[questionIndex].answers; let indexOfAnswer = index;"
+          [text]="answer"
+          (tap)="chooseAnswer(indexOfAnswer)"
+          [col]="setColumn(indexOfAnswer)"
+          [row]="setRow(indexOfAnswer)"
+          style="background-color: #0099CC; margin: 5;">
+  </Button>
+  <Label [text]="exam.questions[questionIndex].description" col="0" row="5" colSpan="2" class="h2 p-15" textWrap="true"></Label>
+  <Label text="Stop Watch" col="0" row="6" colSpan="2" class="h2 p-15" textWrap="true"></Label>
+</GridLayout>
