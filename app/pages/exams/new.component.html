@@ -1,15 +1,41 @@
-<GridLayout *ngIf="!editting" columns="*,*,*,*,*" rows="*,*,*,*,*,*" toggleNavButton>
-  <Button *ngFor="let topic of exam.topics; let indexOfTopic = index" (tap)="openEditView()" [col]="getCol(indexOfTopic)" [row]="getRow(indexOfTopic)" [text]="indexOfTopic + 1" [style]="getStyle(indexOfTopic)"></Button>
-  <Button [col]="getCol(exam.topics.length)" [row]="getRow(exam.topics.length)" text="+" (tap)="addTopic()" style="background-color: #0099CC; margin: 0;"></Button>
-</GridLayout>
+<StackLayout *ngIf="!editting" class="input-field">
+  <StackLayout class="input-field">
+    <Label class="label" text="Name" textWrap="true"></Label>
+    <TextField class="input input-border" hint="Name" [(ngModel)]="exam.name"></TextField>
+    <Label class="label" text="Description" textWrap="true"></Label>
+    <TextField class="input input-border" hint="Description" [(ngModel)]="exam.description"></TextField>
+    <Label class="label" text="Number of Answers for each Question" textWrap="true"></Label>
+    <GridLayout class="m-15" rows="auto auto" columns="50 * 50">
+      <Label class="h2 p-15" [text]="exam.numberOfAnswer" textWrap="true" row="0" colSpan="3"></Label>
+      <Label text="&#xe90b;" textWrap="true" row="1" col="0" fontSize="15" class="icon"></Label>
+      <Slider [(ngModel)]="exam.numberOfAnswer" minValue="1" value="1" maxValue="5" row="1" col="1"></Slider>
+      <Label text="&#xe90b;" textWrap="true" row="1" col="2" fontSize="20" class="icon"></Label>
+    </GridLayout>
+  </StackLayout>
+  <Button text="Create" (tap)="createExam()"></Button>
+  <GridLayout *ngIf="!editting" columns="*,*,*,*,*" rows="*,*,*,*,*,*" toggleNavButton>
+    <Button *ngFor="let topic of exam.topics; let indexOfTopic = index"
+            (tap)="openEditView(indexOfTopic)"
+            [col]="getCol(indexOfTopic)"
+            [row]="getRow(indexOfTopic)"
+            [text]="indexOfTopic + 1"
+            [style]="getStyle(indexOfTopic)"></Button>
+    <Button [col]="getCol(exam.topics.length)"
+            [row]="getRow(exam.topics.length)"
+            text="+"
+            (tap)="addTopic()"
+            style="background-color: #0099CC; margin: 0;"></Button>
+  </GridLayout>
+</StackLayout>
 
 <StackLayout *ngIf="editting">
-  <TextField class="input" hint="Focused TextField" [(ngModel)]="topic.question"></TextField>
-  <StackLayout *ngIf="topic.question">
-    <FlexboxLayout *ngFor="let line of (topic.question.split(' ').length / 5) | times">
-      <Button *ngFor="let word of topic.question.split(' ').slice(line * 5, (line * 5) + 5); let indexOfWord = index"
+  <TextField class="input" hint="Focused TextField" [(ngModel)]="exam.topics[indexOfTopic].question"></TextField>
+  <StackLayout *ngIf="exam.topics[indexOfTopic].question">
+    <FlexboxLayout *ngFor="let line of (exam.topics[indexOfTopic].question.split(' ').length / 5) | times">
+      <Button *ngFor="let word of exam.topics[indexOfTopic].question.split(' ').slice(line * 5, (line * 5) + 5); let indexOfWord = index"
               [text]="word"
               flexGrow="1"></Button>
     </FlexboxLayout>
   </StackLayout>
+  <Button text="Back" (tap)="backToList()"></Button>
 </StackLayout>
