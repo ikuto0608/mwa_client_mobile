@@ -12,7 +12,6 @@ import { ExamService } from '../../shared/services/exam.service';
 @Component({
   selector: 'exams-result',
   templateUrl: 'pages/exams/result.component.html',
-  //providers: [ExamService],
 })
 export class ExamsResultComponent implements OnInit {
   public exam: Exam;

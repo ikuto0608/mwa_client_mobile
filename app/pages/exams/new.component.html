@@ -1,0 +1,15 @@
+<GridLayout *ngIf="!editting" columns="*,*,*,*,*" rows="*,*,*,*,*,*" toggleNavButton>
+  <Button *ngFor="let topic of exam.topics; let indexOfTopic = index" (tap)="openEditView()" [col]="getCol(indexOfTopic)" [row]="getRow(indexOfTopic)" [text]="indexOfTopic + 1" [style]="getStyle(indexOfTopic)"></Button>
+  <Button [col]="getCol(exam.topics.length)" [row]="getRow(exam.topics.length)" text="+" (tap)="addTopic()" style="background-color: #0099CC; margin: 0;"></Button>
+</GridLayout>
+
+<StackLayout *ngIf="editting">
+  <TextField class="input" hint="Focused TextField" [(ngModel)]="topic.question"></TextField>
+  <StackLayout *ngIf="topic.question">
+    <FlexboxLayout *ngFor="let line of (topic.question.split(' ').length / 5) | times">
+      <Button *ngFor="let word of topic.question.split(' ').slice(line * 5, (line * 5) + 5); let indexOfWord = index"
+              [text]="word"
+              flexGrow="1"></Button>
+    </FlexboxLayout>
+  </StackLayout>
+</StackLayout>

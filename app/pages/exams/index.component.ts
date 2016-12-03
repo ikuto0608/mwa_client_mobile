@@ -40,4 +40,8 @@ export class ExamsIndexComponent implements OnInit {
   onSubmit() {
 
   }
+
+  createExam() {
+    this.router.navigate(['exams-new']);
+  }
 }

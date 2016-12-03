@@ -9,6 +9,8 @@ import { routes, navigatableComponents } from './app.routing';
 
 import { ExamService } from './shared/services/exam.service';
 
+import { TimesPipe } from './shared/pipes/times.pipe';
+
 @NgModule({
   imports: [
     NativeScriptModule,
@@ -19,6 +21,7 @@ import { ExamService } from './shared/services/exam.service';
   ],
   declarations: [
     AppComponent,
+    TimesPipe,
     ...navigatableComponents,
   ],
   providers: [ExamService],

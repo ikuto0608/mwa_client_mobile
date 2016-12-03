@@ -1,5 +1,5 @@
 import { Component, OnInit, Directive, ViewChild, ElementRef } from '@angular/core';
-import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from "rxjs/Rx";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/map";
@@ -12,7 +12,6 @@ import { ExamService } from '../../shared/services/exam.service';
 @Component({
   selector: 'exams-take',
   templateUrl: 'pages/exams/take.component.html',
-  //providers: [ExamService],
 })
 export class ExamsTakeComponent implements OnInit {
   public exam: Exam;
@@ -57,12 +56,6 @@ export class ExamsTakeComponent implements OnInit {
   sendResult() {
     let r = this.router;
     //this.exam.resultTime = this.stopwatchComponent.stopTime();
-
-    let navigationExtras: NavigationExtras = {
-      queryParams: {
-        "exam": this.resultExam
-      }
-    };
 
     this.examService
         .sendResult(this.exam.toJson())

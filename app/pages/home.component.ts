@@ -12,8 +12,6 @@ import { UserService } from '../shared/services/user.service';
 export class HomeComponent implements OnInit {
   public user: User;
   public isLogined: boolean;
-  @ViewChild("email") email: ElementRef;
-  @ViewChild("password") password: ElementRef;
 
   constructor(public router: Router, public userService: UserService) {
     this.user = new User();
