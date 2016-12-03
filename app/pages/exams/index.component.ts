@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import dialog = require('ui/dialogs');
 
 import { Exam } from '../../shared/models/exam';
 import { Question } from '../../shared/models/question';
@@ -34,7 +35,12 @@ export class ExamsIndexComponent implements OnInit {
   }
 
   takeExam(id: number) {
-    this.router.navigate(['exams-take/' + id]);
+    dialog.confirm("Ready to take Exam?")
+          .then((result) => {
+            if (result) {
+              this.router.navigate(['exams-take/' + id]);
+            }
+          });
   }
 
   onSubmit() {

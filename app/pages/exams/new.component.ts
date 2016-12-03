@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from "rxjs/Rx";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/map";
+import dialog = require('ui/dialogs');
 
 import { Exam } from '../../shared/models/exam';
 import { Question } from '../../shared/models/question';
@@ -83,5 +84,14 @@ console.log(JSON.stringify(this.exam));
 
   isAnswerSelected(indexOfWord: number) {
     return this.exam.topics[this.indexOfTopic].indexArrayOfAnswer.indexOf(indexOfWord) != -1
+  }
+
+  deleteTopic(indexOfTopic: number) {
+    dialog.confirm("Ready to delete?")
+          .then((result) => {
+            if (result) {
+              this.exam.topics.splice(indexOfTopic, 1);
+            }
+          });
   }
 }
