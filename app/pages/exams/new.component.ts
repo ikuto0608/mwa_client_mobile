@@ -68,6 +68,20 @@ export class ExamsNewComponent implements OnInit {
   }
 
   createExam() {
+console.log(JSON.stringify(this.exam));
+  }
 
+  setAnswer(indexOfWord: number) {
+    var index = this.exam.topics[this.indexOfTopic].indexArrayOfAnswer.indexOf(indexOfWord)
+    if (index < 0) {
+      this.exam.topics[this.indexOfTopic].indexArrayOfAnswer.push(indexOfWord)
+      this.exam.topics[this.indexOfTopic].indexArrayOfAnswer.sort()
+    } else {
+      this.exam.topics[this.indexOfTopic].indexArrayOfAnswer.splice(index, 1)
+    }
+  }
+
+  isAnswerSelected(indexOfWord: number) {
+    return this.exam.topics[this.indexOfTopic].indexArrayOfAnswer.indexOf(indexOfWord) != -1
   }
 }

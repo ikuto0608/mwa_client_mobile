@@ -20,6 +20,7 @@
             [row]="getRow(indexOfTopic)"
             [text]="indexOfTopic + 1"
             [style]="getStyle(indexOfTopic)"></Button>
+
     <Button [col]="getCol(exam.topics.length)"
             [row]="getRow(exam.topics.length)"
             text="+"
@@ -29,13 +30,20 @@
 </StackLayout>
 
 <StackLayout *ngIf="editting">
-  <TextField class="input" hint="Focused TextField" [(ngModel)]="exam.topics[indexOfTopic].question"></TextField>
+  <Label class="label" text="Question" textWrap="true"></Label>
+  <TextField class="input" hint="Question" [(ngModel)]="exam.topics[indexOfTopic].question"></TextField>
   <StackLayout *ngIf="exam.topics[indexOfTopic].question">
+    <Label class="label" text="Choose Answer" textWrap="true"></Label>
     <FlexboxLayout *ngFor="let line of (exam.topics[indexOfTopic].question.split(' ').length / 5) | times">
       <Button *ngFor="let word of exam.topics[indexOfTopic].question.split(' ').slice(line * 5, (line * 5) + 5); let indexOfWord = index"
               [text]="word"
+              (tap)="setAnswer(indexOfWord + (line * 5))"
+              [ngClass]="{'blue': !isAnswerSelected(indexOfWord), 'red': isAnswerSelected(indexOfWord)}"
+              [class.selected]="isAnswerSelected(indexOfWord)"
               flexGrow="1"></Button>
     </FlexboxLayout>
   </StackLayout>
+  <Label class="label" text="Description" textWrap="true"></Label>
+  <TextField class="input" hint="Description" [(ngModel)]="exam.topics[indexOfTopic].description"></TextField>
   <Button text="Back" (tap)="backToList()"></Button>
 </StackLayout>
