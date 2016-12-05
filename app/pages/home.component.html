@@ -1,10 +1,13 @@
 <StackLayout>
-  <Label text="Home" class="h1 text-center"></Label>
+  <ActionBar class="action-bar" title="My App">
+  </ActionBar>
+
   <TextField *ngIf="!isLogined" [(ngModel)]="user.email" hint="Email" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
   <TextField *ngIf="!isLogined" [(ngModel)]="user.password" hint="Password" secure="true"></TextField>
-  <Button *ngIf="!isLogined" text="Sign in" (tap)="signIn()"></Button>
-  <Button *ngIf="!isLogined" text="Sign up" (tap)="signUp()"></Button>
+  <Button *ngIf="!isLogined" text="Sign in" (tap)="signIn()" class="btn btn-primary"></Button>
+  <Button *ngIf="!isLogined" text="Sign up" (tap)="signUp()" class="btn btn-primary"></Button>
 
-  <Button *ngIf="isLogined" text="Test" (tap)="goTest()"></Button>
-  <Button *ngIf="isLogined" text="Profile" (tap)="goProfile()"></Button>
+  <Button *ngIf="isLogined" text="Test" (tap)="goTest()" class="btn btn-primary"></Button>
+  <Button *ngIf="isLogined" text="Profile" (tap)="goProfile()" class="btn btn-primary"></Button>
+  <Button *ngIf="isLogined" text="Logout" (tap)="logout()" class="btn btn-primary"></Button>
 </StackLayout>

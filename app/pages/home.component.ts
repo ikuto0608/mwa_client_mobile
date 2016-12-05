@@ -14,12 +14,15 @@ export class HomeComponent implements OnInit {
   public isLogined: boolean;
 
   constructor(public router: Router, public userService: UserService) {
-    this.user = new User();
-    this.isLogined = false;
   }
 
   ngOnInit() {
-
+    this.user = new User();
+    if (this.userService.isLoggedIn()) {
+      this.isLogined = true;
+    } else {
+      this.isLogined = false;
+    }
   }
 
   signIn() {
@@ -37,6 +40,11 @@ this.user.password = "hogehoge";
 
   signUp() {
     this.isLogined = true;
+  }
+
+  logout() {
+    this.userService.logout();
+    this.isLogined = false;
   }
 
   goTest() {

@@ -1,11 +1,17 @@
 <StackLayout>
-  <SearchBar row="0" #sb hint="Search" [text]="searchPhrase" (submit)="onSubmit(sb.text)"></SearchBar>
+  <ActionBar class="action-bar" title="My App">
+  </ActionBar>
+  <SearchBar row="0" #tag hint="Search" [text]="searchPhrase" (submit)="searchByTag(tag.text)"></SearchBar>
   <ListView row="1" [items]="exams" class="list-group">
     <template let-item="item">
       <GridLayout class="list-group-item">
-        <Label [text]="item.name" (tap)="takeExam(item.id)"></Label>
+        <Label (tap)="takeExam(item.id)" [text]="item.name"></Label>
+        <Button (tap)="editExam(item.id)"
+                text="Edit"
+                style="width: 10%;"
+                class="btn btn-primary"></Button>
       </GridLayout>
     </template>
   </ListView>
-  <Button text="New" (tap)="createExam()"></Button>
+  <Button text="New" (tap)="createExam()" class="btn btn-primary"></Button>
 </StackLayout>

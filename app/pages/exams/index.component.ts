@@ -43,11 +43,15 @@ export class ExamsIndexComponent implements OnInit {
           });
   }
 
-  onSubmit() {
+  searchByTag(term: string) {
 
   }
 
   createExam() {
     this.router.navigate(['exams-new']);
+  }
+
+  editExam(id: number) {
+    this.router.navigate(['exams-edit/' + id]);
   }
 }
