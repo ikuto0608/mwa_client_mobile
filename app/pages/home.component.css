@@ -1,0 +1,26 @@
+GridLayout.header-container {
+  height: 7%;
+  padding: 0;
+  background-color: #B2FF59;
+  font-size: 25px;
+  color: #33691E;
+}
+
+StackLayout.main-container, GridLayout.main-container {
+  height: 86%;
+  padding: 0;
+}
+
+GridLayout.footer-container {
+  height: 7%;
+  padding: 0;
+  background-color: #FCFAF2;
+}
+
+GridLayout.footer-container Label.icon {
+  font-size: 26px;
+  color: #BDC0BA;
+  background-color: #FCFAF2;
+  margin: 15px;
+  text-align: center;
+}

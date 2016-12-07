@@ -7,6 +7,6 @@ import {Page} from "ui/page";
 })
 export class AppComponent {
   constructor(page: Page) {
-    page.actionBarHidden = false;
+    page.actionBarHidden = true;
   }
 }
