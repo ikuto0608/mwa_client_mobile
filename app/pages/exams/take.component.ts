@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from "rxjs/Rx";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/map";
+import { Page } from "ui/page";
 
 import { Exam } from '../../shared/models/exam';
 import { Question } from '../../shared/models/question';
@@ -20,7 +21,8 @@ export class ExamsTakeComponent implements OnInit {
   public progress: number;
   public resultTime: number;
 
-  constructor(public examService: ExamService, private route: ActivatedRoute, private router: Router) {
+  constructor(public examService: ExamService, private route: ActivatedRoute, private router: Router, private page: Page) {
+    this.page.actionBarHidden = true;
   }
 
   ngOnInit() {

@@ -1,1 +1,30 @@
-<page-router-outlet></page-router-outlet>
+<GridLayout columns="*,*" rows="auto,auto,auto">
+  <GridLayout class="header-container" colSpan="3" columns="*,*,*,*,*">
+    <Image colSpan="5" class="image" src="res://logo" stretch="fill"></Image>
+  </GridLayout>
+
+  <router-outlet class="main-container" colSpan="3" row="1"></router-outlet>
+
+  <GridLayout class="footer-container" row="2" colSpan="3" columns="*,*,*,*" rows="*" toggleNavButton>
+    <Label (tap)="goTest()"
+            text="&#xe9ba;"
+            col="0"
+            row="0"
+            class="icon"></Label>
+    <Label (tap)="createTest()"
+            text="&#xe907;"
+            col="1"
+            row="0"
+            class="icon"></Label>
+    <Label (tap)="goProfile()"
+            text="&#xe971;"
+            col="2"
+            row="0"
+            class="icon"></Label>
+    <Label (tap)="logout()"
+            text="&#xea14;"
+            col="3"
+            row="0"
+            class="icon"></Label>
+  </GridLayout>
+</GridLayout>

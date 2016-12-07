@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from "rxjs/Rx";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/map";
+import { Page } from "ui/page";
 import dialog = require('ui/dialogs');
 
 import { Exam } from '../../shared/models/exam';
@@ -21,7 +22,8 @@ export class ExamsNewComponent implements OnInit {
   public editting: boolean;
   public indexOfTopic: number;
 
-  constructor(public examService: ExamService) {
+  constructor(public examService: ExamService, private page: Page) {
+    this.page.actionBarHidden = true;
   }
 
   ngOnInit() {

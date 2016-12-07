@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Page } from "ui/page";
 import dialog = require('ui/dialogs');
 
 import { Exam } from '../../shared/models/exam';
@@ -18,8 +19,8 @@ export class ExamsIndexComponent implements OnInit {
   public exams: any;
   public tag: any;
 
-  constructor(public router: Router, public examService: ExamService) {
-
+  constructor(public router: Router, public examService: ExamService, private page: Page) {
+    this.page.actionBarHidden = true;
   }
 
   ngOnInit() {
