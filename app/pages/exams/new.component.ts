@@ -15,6 +15,7 @@ import { ExamService } from '../../shared/services/exam.service';
 @Component({
   selector: 'exams-new',
   templateUrl: 'pages/exams/new.component.html',
+  styleUrls: ['pages/exams/new.component.css'],
 })
 export class ExamsNewComponent implements OnInit {
   public exam: Exam;

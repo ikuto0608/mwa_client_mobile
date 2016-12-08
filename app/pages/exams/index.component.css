@@ -1,0 +1,19 @@
+GridLayout.list-group-item {
+    margin: 0;
+    padding: 10 15 10 15;
+}
+
+GridLayout.list-group-item Label {
+  vertical-align: middle;
+}
+
+GridLayout.list-group-item Label.title {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+GridLayout.list-group-item Button {
+  margin: 0;
+  padding: 0;
+  width: 10%;
+}

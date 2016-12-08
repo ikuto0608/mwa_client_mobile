@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Page } from "ui/page";
 import dialog = require('ui/dialogs');
@@ -13,11 +13,15 @@ import { ExamService } from '../../shared/services/exam.service';
 @Component({
   selector: 'exams-index',
   templateUrl: 'pages/exams/index.component.html',
+  styleUrls: ['pages/exams/index.component.css'],
   providers: [ExamService],
 })
-export class ExamsIndexComponent implements OnInit {
+export class ExamsIndexComponent implements OnInit, AfterViewInit {
+  @ViewChild("serachBar") serachBar: any;
+
   public exams: any;
   public tag: any;
+  public term: string;
 
   constructor(public router: Router, public examService: ExamService, private page: Page) {
     this.page.actionBarHidden = true;
@@ -35,6 +39,15 @@ export class ExamsIndexComponent implements OnInit {
         );
   }
 
+  ngAfterViewInit() {
+    let searchBar = this.page.getViewById("serach_bar");
+    if (searchBar.ios) {
+      searchBar.ios.endEditing(true);
+    } else if (searchBar.android) {
+      searchBar.android.clearFocus();
+    }
+  }
+
   takeExam(id: number) {
     dialog.confirm("Ready to take Exam?")
           .then((result) => {
@@ -44,12 +57,8 @@ export class ExamsIndexComponent implements OnInit {
           });
   }
 
-  searchByTag(term: string) {
+  searchByTag() {
 
-  }
-
-  createExam() {
-    this.router.navigate(['exams-new']);
   }
 
   editExam(id: number) {

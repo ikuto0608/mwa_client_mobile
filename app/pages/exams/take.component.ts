@@ -13,6 +13,7 @@ import { ExamService } from '../../shared/services/exam.service';
 @Component({
   selector: 'exams-take',
   templateUrl: 'pages/exams/take.component.html',
+  styleUrls: ['pages/exams/take.component.css'],
 })
 export class ExamsTakeComponent implements OnInit {
   public exam: Exam;

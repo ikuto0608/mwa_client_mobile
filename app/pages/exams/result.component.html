@@ -1,9 +1,9 @@
-<ActionBar class="action-bar" title="My App">
-</ActionBar>
-<ListView [items]="exam.markedTopics" class="list-group">
-  <template let-topic="item" let-indexOfTopic="index">
-    <GridLayout class="list-group-item">
-      <Label [text]="topic.sample"></Label>
-    </GridLayout>
-  </template>
-</ListView>
+<StackLayout class="main-container" colSpan="3" row="1">
+  <ListView [items]="exam.markedTopics" class="list-group">
+    <template let-topic="item" let-indexOfTopic="index">
+      <GridLayout class="list-group-item">
+        <Label [text]="topic.sample"></Label>
+      </GridLayout>
+    </template>
+  </ListView>
+</StackLayout>
