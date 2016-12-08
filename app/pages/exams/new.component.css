@@ -1,0 +1,22 @@
+Label {
+  font-size: 20%;
+  margin: 0 0 1% 0;
+}
+
+TextField.input.input-rounded {
+  height: 5%;
+}
+
+Label.number_of_answer {
+  text-align: center;
+  font-size: 25%;
+  color: #2EA9DF;
+}
+
+Label.minus {
+  text-align: right;
+}
+
+Label.plus {
+  text-align: left;
+}

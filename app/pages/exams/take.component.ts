@@ -1,4 +1,4 @@
-import { Component, OnInit, Directive, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Directive, ViewChild, ElementRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from "rxjs/Rx";
 import "rxjs/add/operator/do";
@@ -15,11 +15,13 @@ import { ExamService } from '../../shared/services/exam.service';
   templateUrl: 'pages/exams/take.component.html',
   styleUrls: ['pages/exams/take.component.css'],
 })
-export class ExamsTakeComponent implements OnInit {
+export class ExamsTakeComponent implements OnInit, AfterViewInit {
+  @ViewChild('stopwatchComponent') stopwatchComponent: any;
+  @ViewChild("progress") progress: ElementRef;
+
   public exam: Exam;
   public resultExam: Exam;
   public questionIndex: number;
-  public progress: number;
   public resultTime: number;
 
   constructor(public examService: ExamService, private route: ActivatedRoute, private router: Router, private page: Page) {
@@ -37,10 +39,13 @@ export class ExamsTakeComponent implements OnInit {
         );
 
     this.questionIndex = 0;
-    this.progress = 0;
+  }
+
+  ngAfterViewInit() {
   }
 
   chooseAnswer(answerIndex) {
+    this.progressUp();
     this.exam.resultArray = this.exam.resultArray || new Array<Object>();
     this.exam.resultArray.push(
       { topic_id: this.exam.questions[this.questionIndex].id,
@@ -58,7 +63,7 @@ export class ExamsTakeComponent implements OnInit {
 
   sendResult() {
     let r = this.router;
-    //this.exam.resultTime = this.stopwatchComponent.stopTime();
+    this.exam.resultTime = this.stopwatchComponent.stopTime();
 
     this.examService
         .sendResult(this.exam.toJson())
@@ -70,7 +75,7 @@ export class ExamsTakeComponent implements OnInit {
   }
 
   progressUp() {
-    this.progress += 10;
+    this.progress.nativeElement.value += 10;
   }
 
   setColumn(indexOfAnswer: number) {

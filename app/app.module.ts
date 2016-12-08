@@ -10,6 +10,7 @@ import { routes, navigatableComponents } from './app.routing';
 import { ExamService } from './shared/services/exam.service';
 
 import { TimesPipe } from './shared/pipes/times.pipe';
+import { FormatMMSSSSPipe } from './shared/pipes/formatMMSSSS.pipe';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { TimesPipe } from './shared/pipes/times.pipe';
   declarations: [
     AppComponent,
     TimesPipe,
+    FormatMMSSSSPipe,
     ...navigatableComponents,
   ],
   providers: [ExamService],

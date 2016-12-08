@@ -1,6 +1,6 @@
 <StackLayout class="main-container" colSpan="3" row="1">
   <GridLayout *ngIf="exam" columns="*,*" rows="*,*,*,*,*,*,*" toggleNavButton>
-    <Border borderWidth="1" borderColor="#FF0000" col="0" row="0" colSpan="2" rowSpan="3">
+    <Border borderWidth="1" borderColor="#FCFAF2" col="0" row="0" colSpan="2" rowSpan="3">
       <Label [text]="exam.questions[questionIndex].sentence" col="0" row="0" colSpan="2" rowSpan="3" class="question" textWrap="true"></Label>
     </Border>
     <Button *ngFor="let answer of exam.questions[questionIndex].answers; let indexOfAnswer = index;"
@@ -11,6 +11,9 @@
             class="btn btn-primary answer">
     </Button>
     <Label [text]="exam.questions[questionIndex].description" col="0" row="5" colSpan="2" class="description" textWrap="true"></Label>
-    <Label text="Stop Watch" col="0" row="6" colSpan="2" class="h2 p-15" textWrap="true"></Label>
+    <StackLayout col="0" row="6" colSpan="2" class="stopwatch">
+      <Progress maxValue="100" #progress class="m-20"></Progress>
+      <stopwatch #stopwatchComponent></stopwatch>
+    </StackLayout>
   </GridLayout>
 </StackLayout>

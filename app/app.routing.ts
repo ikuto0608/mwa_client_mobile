@@ -4,6 +4,7 @@ import { ExamsTakeComponent } from './pages/exams/take.component';
 import { ExamsResultComponent } from './pages/exams/result.component';
 import { ExamsNewComponent } from './pages/exams/new.component';
 import { ExamsEditComponent } from './pages/exams/edit.component';
+import { StopwatchComponent } from './pages/stopwatch.component';
 
 export const routes = [
   { path: '', component: HomeComponent },
@@ -21,4 +22,5 @@ export const navigatableComponents = [
   ExamsResultComponent,
   ExamsNewComponent,
   ExamsEditComponent,
+  StopwatchComponent,
 ];
