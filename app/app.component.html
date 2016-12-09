@@ -5,26 +5,30 @@
 
   <router-outlet></router-outlet>
 
-  <GridLayout class="footer-container" row="2" colSpan="3" columns="*,*,*,*" rows="*" toggleNavButton>
+  <GridLayout *ngIf="!router.url.includes(EXAM_TAKE)" class="footer-container" row="2" colSpan="3" columns="*,*,*,*" rows="*" toggleNavButton>
     <Label (tap)="goHome()"
             text="&#xe900;"
             col="0"
             row="0"
-            class="icon"></Label>
+            class="icon"
+            [ngClass]="{'blue': router.url == HOME, 'grey': router.url != HOME}"></Label>
     <Label (tap)="goTest()"
             text="&#xe9ba;"
             col="1"
             row="0"
-            class="icon"></Label>
+            class="icon"
+            [ngClass]="{'blue': router.url == EXAM_INDEX, 'grey': router.url != EXAM_INDEX}"></Label>
     <Label (tap)="createTest()"
             text="&#xe907;"
             col="2"
             row="0"
-            class="icon"></Label>
+            class="icon"
+            [ngClass]="{'blue': router.url == EXAM_NEW, 'grey': router.url != EXAM_NEW}"></Label>
     <Label (tap)="goProfile()"
             text="&#xe971;"
             col="3"
             row="0"
-            class="icon"></Label>
+            class="icon"
+            [ngClass]="{'blue': router.url == PROFILE, 'grey': router.url != PROFILE}"></Label>
   </GridLayout>
 </GridLayout>

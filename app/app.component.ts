@@ -7,6 +7,12 @@ import {Page} from "ui/page";
     templateUrl: "app.component.html",
 })
 export class AppComponent {
+  public HOME = "/";
+  public EXAM_INDEX = "/exams-index";
+  public EXAM_NEW = "/exams-new";
+  public EXAM_TAKE = "/exams-take";
+  public PROFILE = "/user";
+
   constructor(public router: Router, public page: Page) {
     page.actionBarHidden = true;
   }
