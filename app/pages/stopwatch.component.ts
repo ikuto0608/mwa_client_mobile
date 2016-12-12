@@ -10,7 +10,6 @@ export class StopwatchComponent {
 
   private startTimestamp: any;
   private timeMilliseconds: number;
-  private timeMillisecondsFormatted: string;
   private interval: any;
 
   constructor() {
@@ -18,7 +17,6 @@ export class StopwatchComponent {
 
     this.interval = timer.setInterval(() => {
       this.timeMilliseconds = this.countTime();
-      this.format(this.timeMilliseconds);
     }, 10);
   }
 
@@ -33,12 +31,5 @@ export class StopwatchComponent {
     let diffMilliseconds = now - this.startTimestamp;
     timer.clearInterval(this.interval);
     return diffMilliseconds;
-  }
-
-  format(timeMilliseconds: any) {
-    this.timeMillisecondsFormatted = timeMilliseconds.toString();
-    while (this.timeMillisecondsFormatted.length < 6) {
-      this.timeMillisecondsFormatted = "0" + this.timeMillisecondsFormatted;
-    }
   }
 }

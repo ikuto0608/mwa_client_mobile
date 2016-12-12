@@ -62,7 +62,6 @@ export class ExamsTakeComponent implements OnInit, AfterViewInit {
   }
 
   sendResult() {
-    let r = this.router;
     this.exam.resultTime = this.stopwatchComponent.stopTime();
 
     this.examService
