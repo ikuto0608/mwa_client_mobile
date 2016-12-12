@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import {Page} from "ui/page";
 
+import './rxjs-extensions';
+
 @Component({
     selector: "main",
     templateUrl: "app.component.html",

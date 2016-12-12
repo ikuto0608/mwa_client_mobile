@@ -1,17 +1,18 @@
 <StackLayout class="main-container" colSpan="3" row="1">
-  <SearchBar id="serach_bar" #serachBar row="0" hint="Search" [ngModel]="term" (submit)="searchByTag()"></SearchBar>
-  <ListView row="1" [items]="exams" class="list-group">
+  <SearchBar id="serach_bar" #searchBar row="0" hint="Search Tag..." (propertyChange)="search(searchBar.text)"></SearchBar>
+  <ListView row="1" [items]="exams | async" class="list-group">
     <template let-item="item">
-      <GridLayout (tap)="takeExam(item.id)" columns="auto,*,*,*,*,*,auto" class="list-group-item">
-        <Label col="0" [text]="item.name" class="title"></Label>
+      <GridLayout (tap)="takeExam(item.id)" columns="auto,auto,*,*,*,*,*,auto" class="list-group-item">
+        <Label col="0" [text]="item.name[0] | uppercase" class="initial_letter"></Label>
+        <Label col="1" [text]="item.name" class="title"></Label>
         <Label *ngFor="let tag of item.tags; let indexOfTag = index;"
-               [text]="'&#xe935;' + tag.name"
-               [col]="indexOfTag + 1"
-               class="icon"></Label>
-        <Button col="6"
+               [text]="tag.name"
+               class="tag"
+               [col]="indexOfTag + 2"></Label>
+        <Button col="7"
                 (tap)="editExam(item.id)"
                 text="Edit"
-                class="btn btn-primary"></Button>
+                class="btn btn-primary edit"></Button>
       </GridLayout>
     </template>
   </ListView>

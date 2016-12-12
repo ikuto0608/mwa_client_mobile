@@ -19,7 +19,7 @@ export class TagService {
     headers.append('Content-Type', 'application/json');
 
     return this.http
-               .get(this.tagsUrl + "serach?term=" + term, { headers })
+               .get(this.tagsUrl + "search?term=" + term, { headers })
                .map((res) => res.json());
   }
 

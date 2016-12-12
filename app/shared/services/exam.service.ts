@@ -28,6 +28,17 @@ export class ExamService {
                .catch(err => this.handleErrors(err));
   }
 
+  searchByTag(term: string): any {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let authToken = appSettings.getString('auth_token');
+    headers.append('Authorization', `Bearer ${authToken}`);
+
+    return this.http
+               .get(this.examsUrl + "search_by_tag?term=" + term, { headers })
+               .map((res) => res.json());
+  }
+
   searchByTags(tags: any): Observable<any> {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
