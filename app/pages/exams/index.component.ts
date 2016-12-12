@@ -13,13 +13,12 @@ import { Tag } from '../../shared/models/tag';
 import { Topic } from '../../shared/models/topic';
 
 import { ExamService } from '../../shared/services/exam.service';
-import { TagService } from '../../shared/services/tag.service';
 
 @Component({
   selector: 'exams-index',
   templateUrl: 'pages/exams/index.component.html',
   styleUrls: ['pages/exams/index.component.css'],
-  providers: [ExamService, TagService],
+  providers: [ExamService],
 })
 export class ExamsIndexComponent implements OnInit, AfterViewInit {
   @ViewChild("searchBar") searchBar: any;
@@ -30,7 +29,6 @@ export class ExamsIndexComponent implements OnInit, AfterViewInit {
 
   constructor(public router: Router,
               public examService: ExamService,
-              public tagService: TagService,
               private page: Page) {}
 
   ngOnInit() {

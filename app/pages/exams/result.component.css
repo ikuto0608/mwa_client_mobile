@@ -1,0 +1,14 @@
+Label {
+  margin: 5 0;
+}
+
+GridLayout.correct Label.icon {
+  color: #58B2DC;
+  font-size: 24;
+
+}
+
+GridLayout.wrong Label.icon {
+  color: #CB1B45;
+  font-size: 24;
+}

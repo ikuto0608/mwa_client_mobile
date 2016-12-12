@@ -1,9 +1,21 @@
 <StackLayout class="main-container" colSpan="3" row="1">
   <ListView [items]="exam.markedTopics" class="list-group">
     <template let-topic="item" let-indexOfTopic="index">
+
       <GridLayout class="list-group-item">
-        <Label [text]="topic.sample"></Label>
+        <GridLayout *ngIf="topic.volatileJson.correct" columns="auto,*,auto" rows="*,*,*" class="correct">
+          <Label text="&#xe9eb;" class="icon" row="0"></Label>
+          <Label [text]="indexOfTopic + 1" row="0" col="3"></Label>
+          <Label [text]="topic.sample" row="1" colspan="3" rowspan="2" textWrap="true"></Label>
+        </GridLayout>
+        <GridLayout *ngIf="!topic.volatileJson.correct" columns="auto,*,auto" rows="*,*,*" class="wrong">
+          <Label text="&#xe9fb;" class="icon" row="0" col="0"></Label>
+          <Label [text]="indexOfTopic + 1" row="0" col="3"></Label>
+          <Label [text]="topic.sampleAnswered" row="1" colspan="3" textWrap="true"></Label>
+          <Label [text]="topic.sample" row="2" colspan="3" textWrap="true"></Label>
+        </GridLayout>
       </GridLayout>
+
     </template>
   </ListView>
 </StackLayout>
