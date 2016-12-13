@@ -8,15 +8,15 @@
     <GridLayout col="0" colspan="3" row="1" columns="*,*,*" rows="auto" class="content">
       <GridLayout col="0" row="0" columns="*" rows="*,*">
         <Label row="0" text="&#xe926;" class="icon"></Label>
-        <Label row="1" text="Exam name" class="title" textWrap="true"></Label>
+        <Label row="1" [text]="examName" class="title" textWrap="true"></Label>
       </GridLayout>
       <GridLayout col="1" row="0" columns="*" rows="*,*">
         <Label row="0" text="&#xe99b;" class="icon"></Label>
-        <Label row="1" text="9.9" class="title" textWrap="true"></Label>
+        <Label row="1" [text]="averageScore" class="title" textWrap="true"></Label>
       </GridLayout>
       <GridLayout col="2" row="0" columns="*" rows="*,*">
         <Label row="0" text="&#xe950;" class="icon"></Label>
-        <Label row="1" text="00:37:100" class="title" textWrap="true"></Label>
+        <Label row="1" [text]="averageRecordTime | formatMMSSSS" class="title" textWrap="true"></Label>
       </GridLayout>
     </GridLayout>
   </GridLayout>
@@ -24,12 +24,13 @@
   <ScrollView *ngIf="exams" orientation="vertical">
     <GridLayout columns="*,*,*,*,*" [rows]="getCols()" toggleNavButton class="exams">
       <Button *ngFor="let exam of exams; let indexOfTopic = index"
-              (tap)="recordDetail(exam.id)"
+              (tap)="latestHistory(exam)"
               [col]="getCol(indexOfTopic)"
               [row]="getRow(indexOfTopic)"
               [text]="exam.name"
               [style]="getStyle(indexOfTopic)"
-              class="exam"></Button>
+              class="exam"
+              textWrap="true"></Button>
     </GridLayout>
   </ScrollView>
 </StackLayout>

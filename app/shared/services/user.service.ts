@@ -67,6 +67,17 @@ export class UserService {
                .map(res => res.json());
   }
 
+  latestHistory(examId: number) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let authToken = appSettings.getString('auth_token');
+    headers.append('Authorization', `Bearer ${authToken}`);
+
+    return this.http
+               .get(this.userUrl + 'latest_history/' + examId, { headers })
+               .map(res => res.json());
+  }
+
   register(user: User) {
     let body = JSON.stringify({ user: {
                                   name: user.name,
