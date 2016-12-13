@@ -32,5 +32,6 @@ export class AppComponent {
   }
 
   goProfile() {
+    this.router.navigate(['user-profile']);
   }
 }

@@ -26,7 +26,9 @@ export class ExamsResultComponent implements OnInit {
     this.exam = this.examService.resultExam;
   }
 
-  hoge() {
-    console.log(JSON.stringify(this.exam));
+  score() {
+    return this.exam.markedTopics.filter(topic => {
+            return topic.volatileJson.correct;
+          }).length;
   }
 }

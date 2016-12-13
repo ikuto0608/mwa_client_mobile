@@ -63,6 +63,6 @@ this.user.password = "hogehoge";
   }
 
   goProfile() {
-    this.isLogined = false;
+    this.router.navigate(['user-profile']);
   }
 }

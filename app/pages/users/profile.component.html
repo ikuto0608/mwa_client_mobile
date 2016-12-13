@@ -1,0 +1,38 @@
+<StackLayout *ngIf="user" class="main-container" colSpan="3" row="1">
+  <GridLayout columns="*,*,*" rows="auto,auto">
+    <GridLayout col="0" colspan="3" row="0" columns="*" rows="auto,auto" class="header">
+      <Label row="0" class="image"></Label>
+      <Label row="1" [text]="user.name" class="name"></Label>
+    </GridLayout>
+
+    <GridLayout col="0" colspan="3" row="1" columns="*,*,*" rows="auto" class="content">
+      <GridLayout col="0" row="0" columns="*" rows="*,*">
+        <Label row="0" text="&#xe926;" class="icon"></Label>
+        <Label row="1" text="Exam name" class="title" textWrap="true"></Label>
+      </GridLayout>
+      <GridLayout col="1" row="0" columns="*" rows="*,*">
+        <Label row="0" text="&#xe99b;" class="icon"></Label>
+        <Label row="1" text="9.9" class="title" textWrap="true"></Label>
+      </GridLayout>
+      <GridLayout col="2" row="0" columns="*" rows="*,*">
+        <Label row="0" text="&#xe950;" class="icon"></Label>
+        <Label row="1" text="00:37:100" class="title" textWrap="true"></Label>
+      </GridLayout>
+    </GridLayout>
+  </GridLayout>
+</StackLayout>
+
+
+<!-- <AbsoluteLayout>
+  <ScrollView #scrollView orientation="vertical">
+    <GridLayout columns="*,*,*,*,*" rows="auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto" toggleNavButton>
+      <Button *ngFor="let exam of 200 | times; let indexOfTopic = index"
+              (tap)="hoge()"
+              [col]="getCol(indexOfTopic)"
+              [row]="getRow(indexOfTopic)"
+              [text]="exam + 1"
+              [style]="getStyle(indexOfTopic)"
+              class="btn btn-primary"></Button>
+    </GridLayout>
+  </ScrollView>
+</AbsoluteLayout> -->

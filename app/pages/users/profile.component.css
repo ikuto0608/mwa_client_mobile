@@ -1,0 +1,38 @@
+GridLayout.header {
+  background-color: #4A225D;
+  height: 47%;
+}
+
+Label {
+  text-align: center;
+  vertical-align: middle;
+}
+
+Label.image {
+  background-image: url("res://logo");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 53%;
+  width: 31%;
+  border-radius: 100%;
+  margin: 50 0 30 0;
+}
+
+Label.name {
+  font-size: 32;
+  color: #FCFAF2;
+  margin: 0 0 30 0;
+}
+
+Label.icon {
+  font-size: 19;
+  color: #58B2DC;
+  margin: 11 11 0 11;
+}
+
+Label.title {
+  font-size: 31;
+  color: #58B2DC;
+  margin: 0 11 11 11;
+}
