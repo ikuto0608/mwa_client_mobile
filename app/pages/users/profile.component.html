@@ -20,19 +20,16 @@
       </GridLayout>
     </GridLayout>
   </GridLayout>
-</StackLayout>
 
-
-<!-- <AbsoluteLayout>
-  <ScrollView #scrollView orientation="vertical">
-    <GridLayout columns="*,*,*,*,*" rows="auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto" toggleNavButton>
-      <Button *ngFor="let exam of 200 | times; let indexOfTopic = index"
-              (tap)="hoge()"
+  <ScrollView *ngIf="exams" orientation="vertical">
+    <GridLayout columns="*,*,*,*,*" [rows]="getCols()" toggleNavButton class="exams">
+      <Button *ngFor="let exam of exams; let indexOfTopic = index"
+              (tap)="recordDetail(exam.id)"
               [col]="getCol(indexOfTopic)"
               [row]="getRow(indexOfTopic)"
-              [text]="exam + 1"
+              [text]="exam.name"
               [style]="getStyle(indexOfTopic)"
-              class="btn btn-primary"></Button>
+              class="exam"></Button>
     </GridLayout>
   </ScrollView>
-</AbsoluteLayout> -->
+</StackLayout>

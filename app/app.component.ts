@@ -13,7 +13,7 @@ export class AppComponent {
   public EXAM_INDEX = "/exams-index";
   public EXAM_NEW = "/exams-new";
   public EXAM_TAKE = "/exams-take";
-  public PROFILE = "/user";
+  public PROFILE = "/user-profile";
 
   constructor(public router: Router, public page: Page) {
     page.actionBarHidden = true;
