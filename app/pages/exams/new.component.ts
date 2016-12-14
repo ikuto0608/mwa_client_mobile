@@ -75,6 +75,16 @@ console.log(JSON.stringify(this.exam));
     this.editting = false;
   }
 
+  getRows() {
+    let numberOfLine = ((this.exam.topics.length + 1) / 5) + 1;
+    let autoes = new Array<string>();
+    for (let i = 0; i < numberOfLine; i++) {
+      autoes.push("auto");
+    }
+
+    return autoes.join(',');
+  }
+
   getCol(indexOfTopic):number {
     return (indexOfTopic % 5);
   }

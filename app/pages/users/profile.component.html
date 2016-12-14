@@ -22,7 +22,7 @@
   </GridLayout>
 
   <ScrollView *ngIf="!isDetailView && exams" orientation="vertical">
-    <GridLayout columns="*,*,*,*,*" [rows]="getCols()" toggleNavButton class="exams">
+    <GridLayout columns="*,*,*,*,*" [rows]="getRows()" toggleNavButton class="exams">
       <Button *ngFor="let exam of exams; let indexOfTopic = index"
               (tap)="historyDetail(exam)"
               [col]="getCol(indexOfTopic)"
@@ -34,16 +34,24 @@
     </GridLayout>
   </ScrollView>
 
-  <ListView *ngIf="isDetailView && latestRecords" [items]="latestRecords" class="list-group">
-    <template let-record="item">
-      <GridLayout (tap)="historyList()" columns="*,*,*" class="list-group-item">
-        <Label col="0" [text]="record.score"></Label>
-        <Label col="1" [text]="record.record_time"></Label>
-        <Label col="2" [text]="record.created_at"></Label>
-      </GridLayout>
-    </template>
-  </ListView>
-  <Button *ngIf="isDetailView" (tap)="historyList()" text="Back" class="btn btn-primary"></Button>
+  <GridLayout *ngIf="isDetailView && latestRecords" rows="auto,*,auto">
+    <GridLayout row="0" columns="auto,auto,auto" class="history-title">
+      <Label col="0" text="Score" class="score"></Label>
+      <Label col="1" text="Record Time" class="record-time"></Label>
+      <Label col="2" text="Date" class="record-date"></Label>
+    </GridLayout>
+    <ListView row="1" [items]="latestRecords" class="list-group history-list">
+      <template let-record="item">
+        <GridLayout columns="auto,auto,auto" class="list-group-item">
+          <Label col="0" [text]="record.score" class="score"></Label>
+          <Label col="1" [text]="record.record_time | formatMMSSSS" class="record-time"></Label>
+          <Label col="2" [text]="record.created_at | date: 'MMM d, h:m a' " class="record-date"></Label>
+        </GridLayout>
+      </template>
+    </ListView>
+    <Button row="2" (tap)="historyList()" text="Back" class="btn btn-primary"></Button>
+  </GridLayout>
+
 </StackLayout>
 
 <ActivityIndicator class="main-container" colSpan="3" row="1" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>

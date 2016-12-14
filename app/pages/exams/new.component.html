@@ -1,4 +1,5 @@
 <StackLayout class="main-container" colSpan="3" row="1">
+
   <StackLayout *ngIf="!editting" class="form">
     <StackLayout class="input-field">
       <Label text="Name" textWrap="true"></Label>
@@ -6,35 +7,37 @@
       <Label text="Description" textWrap="true"></Label>
       <TextField [(ngModel)]="exam.description" class="input input-rounded" hint="Description"></TextField>
 
-
-
       <GridLayout rows="auto auto" columns="50 * 50">
         <Label row="0" col="0" colspan="2" text="Number of Answers for each Question:" textWrap="true"></Label>
         <Label row="0" col="2" class="number_of_answer" [text]="exam.numberOfAnswer" textWrap="true"></Label>
-
         <Label class="icon minus" text="&#xea0b;" textWrap="true" row="1" col="0" fontSize="15"></Label>
         <Slider [(ngModel)]="exam.numberOfAnswer" minValue="1" value="1" maxValue="5" row="1" col="1"></Slider>
         <Label class="icon plus" text="&#xea0a;" textWrap="true" row="1" col="2" fontSize="15"></Label>
       </GridLayout>
     </StackLayout>
 
-    <Button (tap)="createExam()" text="Create" class="btn btn-primary"></Button>
-    <GridLayout *ngIf="!editting" columns="*,*,*,*,*" rows="*,*,*,*,*,*" toggleNavButton>
-      <Button *ngFor="let topic of exam.topics; let indexOfTopic = index"
-              (tap)="openEditView(indexOfTopic)"
-              (longPress)="deleteTopic(indexOfTopic)"
-              [col]="getCol(indexOfTopic)"
-              [row]="getRow(indexOfTopic)"
-              [text]="indexOfTopic + 1"
-              [style]="getStyle(indexOfTopic)"
-              class="btn btn-primary"></Button>
+    <ScrollView orientation="vertical">
+      <GridLayout rows="auto,auto">
+        <GridLayout row="0" columns="*,*,*,*,*" [rows]="getRows()" toggleNavButton class="exams">
+          <Button *ngFor="let topic of exam.topics; let indexOfTopic = index"
+                  (tap)="openEditView(indexOfTopic)"
+                  (longPress)="deleteTopic(indexOfTopic)"
+                  [col]="getCol(indexOfTopic)"
+                  [row]="getRow(indexOfTopic)"
+                  [text]="indexOfTopic + 1"
+                  [style]="getStyle(indexOfTopic)"
+                  class="topic"
+                  textWrap="true"></Button>
 
-      <Button (tap)="addTopic()"
-              [col]="getCol(exam.topics.length)"
-              [row]="getRow(exam.topics.length)"
-              text="+"
-              class="btn btn-primary"></Button>
-    </GridLayout>
+          <Button (tap)="addTopic()"
+                  [col]="getCol(exam.topics.length)"
+                  [row]="getRow(exam.topics.length)"
+                  text="+"
+                  class="add-topic"></Button>
+        </GridLayout>
+        <Button row="1" (tap)="createExam()" text="Create" class="btn btn-primary"></Button>
+      </GridLayout>
+    </ScrollView>
   </StackLayout>
 
   <StackLayout *ngIf="editting" class="form">
@@ -59,4 +62,5 @@
 
     <Button text="Back" (tap)="backToList()" class="btn btn-primary"></Button>
   </StackLayout>
+  
 </StackLayout>

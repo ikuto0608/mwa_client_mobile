@@ -93,7 +93,7 @@ export class UsersProfileComponent implements OnInit {
     }
   }
 
-  getCols() {
+  getRows() {
     let numberOfLine = (this.exams.length / 5) + 1;
     let autoes = new Array<string>();
     for (let i = 0; i < numberOfLine; i++) {

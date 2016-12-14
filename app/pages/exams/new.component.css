@@ -20,3 +20,10 @@ Label.minus {
 Label.plus {
   text-align: left;
 }
+
+Button.topic, Button.add-topic {
+  font-size: 19;
+  color: #FCFAF2;
+  width: 100;
+  height: 100;
+}
