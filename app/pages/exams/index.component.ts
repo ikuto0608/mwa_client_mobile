@@ -27,11 +27,14 @@ export class ExamsIndexComponent implements OnInit, AfterViewInit {
   public tags: any;
   private searchTerms = new Subject<string>();
 
+  public isLoading = false;
+
   constructor(public router: Router,
               public examService: ExamService,
               private page: Page) {}
 
   ngOnInit() {
+    this.isLoading = true;
     this.page.actionBarHidden = true;
 
     this.exams = this.searchTerms
@@ -39,14 +42,20 @@ export class ExamsIndexComponent implements OnInit, AfterViewInit {
                      .distinctUntilChanged()
                      .switchMap(term => {
                        if (term) {
-                         return this.examService.searchByTag(term);
+                         let exams = this.examService.searchByTag(term);
+                         this.isLoading = false;
+                         return exams;
                        } else {
-                         return this.examService.all();
+                         let exams = this.examService.all();
+                         this.isLoading = false;
+                         return exams;
                        }
                      })
                      .catch(error => {
                        console.log(error);
-                       return this.examService.all();
+                       let exams = this.examService.all();
+                       this.isLoading = false;
+                       return exams;
                      });
   }
 
@@ -71,6 +80,7 @@ export class ExamsIndexComponent implements OnInit, AfterViewInit {
   }
 
   search(term: string) {
+    this.isLoading = true;
     this.searchTerms.next(term);
   }
 

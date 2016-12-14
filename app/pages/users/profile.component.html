@@ -21,10 +21,10 @@
     </GridLayout>
   </GridLayout>
 
-  <ScrollView *ngIf="exams" orientation="vertical">
+  <ScrollView *ngIf="!isDetailView && exams" orientation="vertical">
     <GridLayout columns="*,*,*,*,*" [rows]="getCols()" toggleNavButton class="exams">
       <Button *ngFor="let exam of exams; let indexOfTopic = index"
-              (tap)="latestHistory(exam)"
+              (tap)="historyDetail(exam)"
               [col]="getCol(indexOfTopic)"
               [row]="getRow(indexOfTopic)"
               [text]="exam.name"
@@ -33,4 +33,17 @@
               textWrap="true"></Button>
     </GridLayout>
   </ScrollView>
+
+  <ListView *ngIf="isDetailView && latestRecords" [items]="latestRecords" class="list-group">
+    <template let-record="item">
+      <GridLayout (tap)="historyList()" columns="*,*,*" class="list-group-item">
+        <Label col="0" [text]="record.score"></Label>
+        <Label col="1" [text]="record.record_time"></Label>
+        <Label col="2" [text]="record.created_at"></Label>
+      </GridLayout>
+    </template>
+  </ListView>
+  <Button *ngIf="isDetailView" (tap)="historyList()" text="Back" class="btn btn-primary"></Button>
 </StackLayout>
+
+<ActivityIndicator class="main-container" colSpan="3" row="1" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>

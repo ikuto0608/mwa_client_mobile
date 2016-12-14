@@ -31,3 +31,5 @@
   <Label text="&#xe9bb;" class="icon list" col="0" row="2"></Label>
 
 </GridLayout>
+
+<ActivityIndicator class="main-container" colSpan="3" row="1" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>

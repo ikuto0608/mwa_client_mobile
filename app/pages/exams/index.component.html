@@ -1,6 +1,6 @@
 <StackLayout class="main-container" colSpan="3" row="1">
-  <SearchBar id="serach_bar" #searchBar row="0" hint="Search Tag..." (propertyChange)="search(searchBar.text)"></SearchBar>
-  <ListView row="1" [items]="exams | async" class="list-group">
+  <SearchBar id="serach_bar" #searchBar hint="Search Tag..." (propertyChange)="search(searchBar.text)"></SearchBar>
+  <ListView [items]="exams | async" class="list-group">
     <template let-item="item">
       <GridLayout (tap)="takeExam(item.id)" columns="auto,auto,*,*,*,*,*,auto" class="list-group-item">
         <Label col="0" [text]="item.name[0] | uppercase" class="initial_letter"></Label>
@@ -17,3 +17,5 @@
     </template>
   </ListView>
 </StackLayout>
+
+<ActivityIndicator class="main-container" colSpan="3" row="1" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>

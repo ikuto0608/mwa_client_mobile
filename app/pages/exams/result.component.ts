@@ -17,18 +17,23 @@ import { ExamService } from '../../shared/services/exam.service';
 })
 export class ExamsResultComponent implements OnInit {
   public exam: Exam;
+  public isLoading = false;
 
   constructor(public examService: ExamService, private route: ActivatedRoute, private page: Page) {
     this.page.actionBarHidden = true;
   }
 
   ngOnInit() {
+    this.isLoading = true;
     this.exam = this.examService.resultExam;
   }
 
   score() {
-    return this.exam.markedTopics.filter(topic => {
-            return topic.volatileJson.correct;
-          }).length;
+    return this.exam
+               .markedTopics
+               .filter(topic => {
+                 this.isLoading = false;
+                 return topic.volatileJson.correct;
+               }).length;
   }
 }
