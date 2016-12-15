@@ -1,29 +1,29 @@
-<StackLayout *ngIf="!isLogined" class="main-container" colSpan="3" row="1">
+<StackLayout *ngIf="!isLogined" class="main-container main-background-color" colSpan="3" row="0">
   <TextField [(ngModel)]="user.email" hint="Email" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
   <TextField [(ngModel)]="user.password" hint="Password" secure="true"></TextField>
   <Button text="&#xea13; Sign in" (tap)="signIn()" class="icon btn-primary"></Button>
   <Button text="&#xea13; Sign up" (tap)="signUp()" class="icon btn-primary"></Button>
 </StackLayout>
 
-<GridLayout *ngIf="isLogined" class="main-container" row="1" colSpan="3" columns="*,*" rows="*,*" toggleNavButton>
+<GridLayout *ngIf="isLogined" class="main-container main-background-color" row="0" colSpan="3" columns="*,*,*,*" rows="*,*,*,*" toggleNavButton>
   <Button (tap)="goTest()"
           text="&#xe9ba;"
-          col="0"
-          row="0"
-          class="btn-primary icon"></Button>
-  <Button (tap)="createTest()"
-          text="&#xe907;"
           col="1"
-          row="0"
-          class="icon btn-primary"></Button>
+          row="1"
+          class="icon base-color sub-background-color"></Button>
+  <Button (tap)="editTest()"
+          text="&#xe907;"
+          col="2"
+          row="1"
+          class="icon base-color sub-background-color"></Button>
   <Button (tap)="goProfile()"
           text="&#xe971;"
-          col="0"
-          row="1"
-          class="icon btn-primary"></Button>
+          col="1"
+          row="2"
+          class="icon base-color sub-background-color"></Button>
   <Button (tap)="logout()"
           text="&#xea14;"
-          col="1"
-          row="1"
-          class="icon btn-primary"></Button>
+          col="2"
+          row="2"
+          class="icon base-color sub-background-color"></Button>
 </GridLayout>

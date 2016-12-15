@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { User } from '../../shared/models/user';
@@ -11,7 +11,7 @@ import { UserService } from '../../shared/services/user.service';
   styleUrls: ['pages/users/profile.component.css'],
   providers: [UserService],
 })
-export class UsersProfileComponent implements OnInit {
+export class UsersProfileComponent implements OnInit, AfterViewInit {
   public user: User;
   public exams: Array<Exam>;
   public latestRecords: any;
@@ -44,6 +44,10 @@ export class UsersProfileComponent implements OnInit {
     this.examName = "-";
     this.averageScore = "-";
     this.averageRecordTime = "0";
+  }
+
+  ngAfterViewInit() {
+    //this.isLoading = false;
   }
 
   getContents(data: any) {

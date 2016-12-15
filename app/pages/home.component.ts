@@ -58,8 +58,8 @@ this.user.password = "hogehoge";
     this.router.navigate(['exams-index']);
   }
 
-  createTest() {
-    this.router.navigate(['exams-new']);
+  editTest() {
+    this.router.navigate(['exams-edit-list']);
   }
 
   goProfile() {

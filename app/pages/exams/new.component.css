@@ -10,7 +10,6 @@ TextField.input.input-rounded {
 Label.number_of_answer {
   text-align: center;
   font-size: 25%;
-  color: #2EA9DF;
 }
 
 Label.minus {
@@ -26,4 +25,21 @@ Button.topic, Button.add-topic {
   color: #FCFAF2;
   width: 100;
   height: 100;
+}
+
+Button.blue {
+  color: #FCFAF2;
+  background-color: #81C7D4;
+  margin: 5;
+}
+
+Button.red {
+  color: #FCFAF2;
+  background-color: #E03C8A;
+  margin: 5;
+}
+
+Label.back {
+  margin: 17;
+  font-size: 25;
 }

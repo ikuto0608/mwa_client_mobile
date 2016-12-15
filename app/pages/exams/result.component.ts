@@ -19,7 +19,7 @@ export class ExamsResultComponent implements OnInit {
   public exam: Exam;
   public isLoading = false;
 
-  constructor(public examService: ExamService, private route: ActivatedRoute, private page: Page) {
+  constructor(public examService: ExamService, private router: Router, private route: ActivatedRoute, private page: Page) {
     this.page.actionBarHidden = true;
   }
 
@@ -35,5 +35,9 @@ export class ExamsResultComponent implements OnInit {
                  this.isLoading = false;
                  return topic.volatileJson.correct;
                }).length;
+  }
+
+  backHome() {
+    this.router.navigate(['']);
   }
 }

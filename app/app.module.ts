@@ -12,6 +12,8 @@ import { ExamService } from './shared/services/exam.service';
 import { TimesPipe } from './shared/pipes/times.pipe';
 import { FormatMMSSSSPipe } from './shared/pipes/formatMMSSSS.pipe';
 
+import { GradientDirective } from './shared/directives/gradient.directive';
+
 @NgModule({
   imports: [
     NativeScriptModule,
@@ -24,6 +26,7 @@ import { FormatMMSSSSPipe } from './shared/pipes/formatMMSSSS.pipe';
     AppComponent,
     TimesPipe,
     FormatMMSSSSPipe,
+    GradientDirective,
     ...navigatableComponents,
   ],
   providers: [ExamService],

@@ -1,0 +1,26 @@
+<StackLayout class="main-container main-background-color" colSpan="3" row="0">
+  <GridLayout columns="*" rows="auto,*">
+    <GridLayout row="0" columns="*,*,*,*,*" rows="*" class="base-background-color">
+     <Label (tap)="newExam()" col="4" text="&#xea0a;" horizontalAlignment="right" class="icon new sub-color"></Label>
+    </GridLayout>
+
+    <ListView *ngIf="exams" row="1" [items]="exams" class="list-group">
+      <template let-exam="item">
+        <GridLayout columns="auto,auto,*,*,*,*,*,auto" class="list-group-item">
+          <Label col="0" [text]="exam.name[0] | uppercase" class="initial_letter sub-background-color base-color"></Label>
+          <Label col="1" [text]="exam.name" class="title"></Label>
+          <Label *ngFor="let tag of exam.tags; let indexOfTag = index;"
+                 [text]="tag.name"
+                 class="tag vivid-background-color base-color"
+                 [col]="indexOfTag + 2"></Label>
+          <Button col="7"
+                  (tap)="editExam(exam.id)"
+                  text="Edit"
+                  class="sub-background-color base-color"></Button>
+        </GridLayout>
+      </template>
+    </ListView>
+  </GridLayout>
+</StackLayout>
+
+<ActivityIndicator class="main-container main-background-color" colSpan="3" row="1" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>

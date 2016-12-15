@@ -15,6 +15,7 @@ import { ExamService } from '../../shared/services/exam.service';
 @Component({
   selector: 'exams-edit',
   templateUrl: 'pages/exams/edit.component.html',
+  styleUrls: ['pages/exams/new.component.css'],
 })
 export class ExamsEditComponent implements OnInit {
   public exam: Exam;
@@ -44,12 +45,14 @@ export class ExamsEditComponent implements OnInit {
   }
 
   setAnswer(indexOfWord: number) {
-    var index = this.exam.topics[this.indexOfTopic].indexArrayOfAnswer.indexOf(indexOfWord)
+console.log(indexOfWord);
+    let index = this.exam.topics[this.indexOfTopic].indexArrayOfAnswer.indexOf(indexOfWord);
+console.log(index);
     if (index < 0) {
-      this.exam.topics[this.indexOfTopic].indexArrayOfAnswer.push(indexOfWord)
-      this.exam.topics[this.indexOfTopic].indexArrayOfAnswer.sort()
+      this.exam.topics[this.indexOfTopic].indexArrayOfAnswer.push(indexOfWord);
+      this.exam.topics[this.indexOfTopic].indexArrayOfAnswer.sort();
     } else {
-      this.exam.topics[this.indexOfTopic].indexArrayOfAnswer.splice(index, 1)
+      this.exam.topics[this.indexOfTopic].indexArrayOfAnswer.splice(index, 1);
     }
   }
 
@@ -67,7 +70,19 @@ export class ExamsEditComponent implements OnInit {
   }
 
   updateExam() {
-console.log(JSON.stringify(this.exam));
+    let options = {
+        title: "Confirm",
+        message: "Updated!",
+        okButtonText: "OK"
+    };
+
+    this.examService
+        .update(this.exam.id, this.exam.toJson())
+        .subscribe(
+          data => console.log(JSON.stringify(data)),
+          err => console.log(err),
+          () => dialog.alert(options).then(() => { console.log("Updated!"); })
+        );
   }
 
   openEditView(indexOfTopic: number) {
@@ -77,6 +92,16 @@ console.log(JSON.stringify(this.exam));
 
   backToList() {
     this.editting = false;
+  }
+
+  getRows() {
+    let numberOfLine = ((this.exam.topics.length + 1) / 5) + 1;
+    let autoes = new Array<string>();
+    for (let i = 0; i < numberOfLine; i++) {
+      autoes.push("auto");
+    }
+
+    return autoes.join(',');
   }
 
   getCol(indexOfTopic):number {

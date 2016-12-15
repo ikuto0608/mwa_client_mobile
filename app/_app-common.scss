@@ -17,7 +17,6 @@
 
 GridLayout.header-container {
   height: 7%;
-  background-color: #CCFF90;
 }
 
 GridLayout.header-container Image {
@@ -30,19 +29,17 @@ GridLayout.header-container Image {
 }
 
 StackLayout.main-container, GridLayout.main-container {
-  height: 86%;
+  height: 93%;
   padding: 0;
 }
 
 GridLayout.footer-container {
   height: 7%;
   padding: 0;
-  background-color: #FCFAF2;
 }
 
 GridLayout.footer-container Label.icon {
   font-size: 26px;
-  background-color: #FCFAF2;
   margin: 15px;
   text-align: center;
 }
@@ -53,4 +50,44 @@ GridLayout.footer-container Label.icon {
 
 .blue {
   color: #58B2DC;
+}
+
+.main-background-color {
+}
+
+.sub-background-color {
+  background-color: #EB7A77;
+}
+
+.base-background-color {
+  background-color: #FCFAF2;
+}
+
+.extra-background-color {
+  background-color: #58B2DC;
+}
+
+.vivid-background-color {
+  background-color: #F75C2F;
+
+}
+
+.main-color {
+  color: #CCFF90;
+}
+
+.sub-color {
+  color: #EB7A77;
+}
+
+.base-color {
+  color: #FCFAF2;
+}
+
+.extra-color {
+  color: #58B2DC;
+}
+
+.vivid-color {
+  color: #B481BB;
 }

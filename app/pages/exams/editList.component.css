@@ -1,3 +1,8 @@
+Label.new {
+  margin: 20;
+  font-size: 19;
+}
+
 GridLayout.list-group-item {
     margin: 0;
     padding: 10 15 10 15;

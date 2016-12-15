@@ -1,18 +1,16 @@
-<StackLayout class="main-container" colSpan="3" row="1">
+<StackLayout class="main-container" colSpan="3" row="0">
   <GridLayout *ngIf="exam" columns="*,*" rows="*,*,*,*,*,*,*" toggleNavButton>
-    <Border borderWidth="1" borderColor="#FCFAF2" col="0" row="0" colSpan="2" rowSpan="3">
-      <Label [text]="exam.questions[questionIndex].sentence" col="0" row="0" colSpan="2" rowSpan="3" class="question" textWrap="true"></Label>
-    </Border>
+    <Label [text]="exam.questions[questionIndex].sentence" col="0" row="0" colSpan="2" rowSpan="3" class="question" textWrap="true"></Label>
     <Button *ngFor="let answer of exam.questions[questionIndex].answers; let indexOfAnswer = index;"
             [text]="answer.join(' ')"
             (tap)="chooseAnswer(indexOfAnswer)"
             [col]="setColumn(indexOfAnswer)"
             [row]="setRow(indexOfAnswer)"
-            class="btn btn-primary answer">
+            class="sub-background-color base-color answer">
     </Button>
     <Label [text]="exam.questions[questionIndex].description" col="0" row="5" colSpan="2" class="description" textWrap="true"></Label>
-    <StackLayout col="0" row="6" colSpan="2" class="stopwatch">
-      <Progress maxValue="100" #progress class="m-20"></Progress>
+    <StackLayout col="0" row="6" colSpan="2" class="stopwatch blue">
+      <Progress maxValue="100" #progress class="m-20 blue"></Progress>
       <stopwatch #stopwatchComponent></stopwatch>
     </StackLayout>
   </GridLayout>

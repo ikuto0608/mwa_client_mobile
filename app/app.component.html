@@ -1,11 +1,7 @@
-<GridLayout columns="*,*" rows="auto,auto,auto">
-  <GridLayout class="header-container" colSpan="3" columns="*,*,*,*,*">
-    <Image colSpan="5" class="image" src="res://logo" stretch="fill"></Image>
-  </GridLayout>
-
+<GridLayout columns="*" rows="auto,auto" [gradient]="'#A1FFCE'" [endColor]="'#FAFFD1'">
   <router-outlet></router-outlet>
 
-  <GridLayout *ngIf="!router.url.includes(EXAM_TAKE)" class="footer-container" row="2" colSpan="3" columns="*,*,*,*" rows="*" toggleNavButton>
+  <GridLayout *ngIf="!router.url.includes(EXAM_TAKE) && !router.url.includes(EXAM_RESULT)" class="footer-container base-background-color" row="1" colSpan="3" columns="*,*,*,*" rows="*" toggleNavButton>
     <Label (tap)="goHome()"
             text="&#xe900;"
             col="0"
@@ -18,12 +14,12 @@
             row="0"
             class="icon"
             [ngClass]="{'blue': router.url == EXAM_INDEX, 'grey': router.url != EXAM_INDEX}"></Label>
-    <Label (tap)="createTest()"
+    <Label (tap)="editTest()"
             text="&#xe907;"
             col="2"
             row="0"
             class="icon"
-            [ngClass]="{'blue': router.url == EXAM_NEW, 'grey': router.url != EXAM_NEW}"></Label>
+            [ngClass]="{'blue': (router.url == EXAM_NEW) || router.url.includes(EXAM_EDIT), 'grey': (router.url != EXAM_NEW) || !router.url.includes(EXAM_EDIT) }"></Label>
     <Label (tap)="goProfile()"
             text="&#xe971;"
             col="3"

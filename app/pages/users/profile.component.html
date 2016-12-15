@@ -1,22 +1,22 @@
-<StackLayout *ngIf="user" class="main-container" colSpan="3" row="1">
+<StackLayout *ngIf="user" class="main-container" colSpan="3" row="0">
   <GridLayout columns="*,*,*" rows="auto,auto">
     <GridLayout col="0" colspan="3" row="0" columns="*" rows="auto,auto" class="header">
       <Label row="0" class="image"></Label>
-      <Label row="1" [text]="user.name" class="name"></Label>
+      <Label row="1" [text]="user.name" class="name blue"></Label>
     </GridLayout>
 
     <GridLayout col="0" colspan="3" row="1" columns="*,*,*" rows="auto" class="content">
       <GridLayout col="0" row="0" columns="*" rows="*,*">
-        <Label row="0" text="&#xe926;" class="icon"></Label>
-        <Label row="1" [text]="examName" class="title" textWrap="true"></Label>
+        <Label row="0" text="&#xe926;" class="icon blue"></Label>
+        <Label row="1" [text]="examName" class="title blue" textWrap="true"></Label>
       </GridLayout>
       <GridLayout col="1" row="0" columns="*" rows="*,*">
-        <Label row="0" text="&#xe99b;" class="icon"></Label>
-        <Label row="1" [text]="averageScore" class="title" textWrap="true"></Label>
+        <Label row="0" text="&#xe99b;" class="icon blue"></Label>
+        <Label row="1" [text]="averageScore" class="title blue" textWrap="true"></Label>
       </GridLayout>
       <GridLayout col="2" row="0" columns="*" rows="*,*">
-        <Label row="0" text="&#xe950;" class="icon"></Label>
-        <Label row="1" [text]="averageRecordTime | formatMMSSSS" class="title" textWrap="true"></Label>
+        <Label row="0" text="&#xe950;" class="icon blue"></Label>
+        <Label row="1" [text]="averageRecordTime | formatMMSSSS" class="title blue" textWrap="true"></Label>
       </GridLayout>
     </GridLayout>
   </GridLayout>
@@ -29,7 +29,7 @@
               [row]="getRow(indexOfTopic)"
               [text]="exam.name"
               [style]="getStyle(indexOfTopic)"
-              class="exam"
+              class="exam base-color"
               textWrap="true"></Button>
     </GridLayout>
   </ScrollView>
@@ -49,9 +49,7 @@
         </GridLayout>
       </template>
     </ListView>
-    <Button row="2" (tap)="historyList()" text="Back" class="btn btn-primary"></Button>
+    <Button row="2" (tap)="historyList()" text="Back" class="sub-background-color base-color"></Button>
   </GridLayout>
 
 </StackLayout>
-
-<ActivityIndicator class="main-container" colSpan="3" row="1" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>

@@ -63,7 +63,19 @@ export class ExamsNewComponent implements OnInit {
   }
 
   createExam() {
-console.log(JSON.stringify(this.exam));
+    let options = {
+        title: "Confirm",
+        message: "Created!",
+        okButtonText: "OK"
+    };
+
+    this.examService
+        .save(this.exam.toJson())
+        .subscribe(
+          data => console.log(JSON.stringify(data)),
+          err => console.log(err),
+          () => dialog.alert(options).then(() => { console.log("Created!"); })
+        );
   }
 
   openEditView(indexOfTopic: number) {

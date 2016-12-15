@@ -1,13 +1,8 @@
-StackLayout.main-container {
-  height: 86%;
-  padding: 0;
-}
-
 GridLayout.main-container {
-  padding: 90px;
 }
 
 GridLayout.main-container Button {
-  margin: 15px;
-  font-size: 36px;
+  margin: 7;
+  font-size: 33;
+
 }

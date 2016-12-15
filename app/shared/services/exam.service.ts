@@ -28,6 +28,17 @@ export class ExamService {
                .catch(err => this.handleErrors(err));
   }
 
+  findByUserId(): Observable<any> {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let authToken = appSettings.getString('auth_token');
+    headers.append('Authorization', `Bearer ${authToken}`);
+
+    return this.http.get(this.examsUrl + "find", { headers: headers })
+               .map((res) => res.json())
+               .catch(err => this.handleErrors(err));
+  }
+
   searchByTag(term: string): any {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -83,8 +94,8 @@ export class ExamService {
     headers.append('Authorization', `Bearer ${authToken}`);
     let options = new RequestOptions({headers: headers});
 
-    this.http.post(this.examsUrl, body, options)
-             .map(res => res.json()).subscribe();
+    return this.http.post(this.examsUrl, body, options)
+               .map(res => res.json());
   }
 
   update(id: number, examJson: any) {
@@ -95,8 +106,8 @@ export class ExamService {
     headers.append('Authorization', `Bearer ${authToken}`);
     let options = new RequestOptions({headers: headers});
 
-    this.http.post(this.examsUrl + id + '/update', body, options)
-             .map((res) => res.json()).subscribe();
+    return this.http.post(this.examsUrl + id + '/update', body, options)
+               .map((res) => res.json());
   }
 
   sendResult(examJson: any): Observable<any> {
