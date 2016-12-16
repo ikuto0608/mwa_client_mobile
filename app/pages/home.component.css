@@ -1,8 +1,9 @@
-GridLayout.main-container {
+StackLayout.main-container.come-across {
+  width: 300;
+  font-size: 27;
 }
 
-GridLayout.main-container Button {
+GridLayout.main-container.logined Button {
   margin: 7;
   font-size: 33;
-
 }
