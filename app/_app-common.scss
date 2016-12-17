@@ -16,7 +16,6 @@
 }
 
 GridLayout.header-container {
-  height: 7%;
 }
 
 GridLayout.header-container Image {
@@ -29,18 +28,16 @@ GridLayout.header-container Image {
 }
 
 StackLayout.main-container, GridLayout.main-container {
-  height: 93%;
   padding: 0;
 }
 
 GridLayout.footer-container {
-  height: 7%;
   padding: 0;
 }
 
 GridLayout.footer-container Label.icon {
-  font-size: 26px;
-  margin: 15px;
+  font-size: 24;
+  margin: 13;
   text-align: center;
 }
 

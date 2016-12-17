@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import {Page} from "ui/page";
+import { Page } from "ui/page";
 
 import './rxjs-extensions';
 
 @Component({
-    selector: "main",
-    templateUrl: "app.component.html",
+  selector: "main",
+  templateUrl: "app.component.html",
 })
 export class AppComponent {
   public HOME = "/";

@@ -12,16 +12,16 @@
       <GridLayout class="list-group-item">
         <GridLayout *ngIf="topic.volatileJson.correct" columns="auto,*,auto" rows="*,*,*" class="correct">
           <Label text="&#xe9eb;" class="icon green" row="0"></Label>
-          <Label [text]="indexOfTopic + 1" row="0" col="3"></Label>
+          <Label [text]="'No.' + ( indexOfTopic + 1 )" row="0" col="3"></Label>
 
           <Label [text]="topic.sample" row="1" col="1" colspan="2" textWrap="true"></Label>
           <Label [text]="topic.description" row="2" col="1" colspan="2" textWrap="true"></Label>
         </GridLayout>
         <GridLayout *ngIf="!topic.volatileJson.correct" columns="auto,*,auto" rows="*,*,*" class="wrong">
           <Label text="&#xe9fb;" class="icon red" row="0" col="0"></Label>
-          <Label [text]="indexOfTopic + 1" row="0" col="3"></Label>
+          <Label [text]="'No.' + ( indexOfTopic + 1 )" row="0" col="3"></Label>
 
-          <Label [text]="topic.sampleAnswered" row="1" col="1" colspan="2" textWrap="true"></Label>
+          <Label [text]="topic.sample" row="1" col="1" colspan="2" textWrap="true"></Label>
           <Label [text]="topic.description" row="2" col="1" colspan="2" textWrap="true"></Label>
         </GridLayout>
       </GridLayout>
@@ -31,4 +31,10 @@
 </GridLayout>
 <Button (tap)="backHome()" colSpan="3" row="2" text="Back" class="sub-background-color base-color"></Button>
 
-<ActivityIndicator class="main-container" colSpan="3" row="0" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
+<ActivityIndicator class="main-container"
+                   colSpan="3"
+                   row="0"
+                   [busy]="isLoading"
+                   [visibility]="isLoading ? 'visible' : 'collapse'"
+                   horizontalAlignment="center"
+                   verticalAlignment="center"></ActivityIndicator>

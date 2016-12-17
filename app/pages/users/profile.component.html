@@ -1,6 +1,6 @@
-<StackLayout *ngIf="user" class="main-container" colSpan="3" row="0">
+<StackLayout class="main-container" colSpan="3" row="0">
   <GridLayout columns="*,*,*" rows="auto,auto,*">
-    <GridLayout col="0" colspan="3" row="0" columns="*" rows="auto,auto" class="header">
+    <GridLayout *ngIf="user" col="0" colspan="3" row="0" columns="*" rows="auto,auto" class="header">
       <Label row="0" class="image"></Label>
       <Label row="1" [text]="user.name" class="name blue"></Label>
     </GridLayout>

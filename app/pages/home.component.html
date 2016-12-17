@@ -1,8 +1,26 @@
 <StackLayout *ngIf="!isLogined" class="main-container come-across main-background-color" colSpan="3" row="0" horizontalAlignment="center" verticalAlignment="center">
-  <TextField [(ngModel)]="user.email" hint="Email" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
-  <TextField [(ngModel)]="user.password" hint="Password" secure="true"></TextField>
-  <Button text="&#xea13; Sign in" (tap)="signIn()" class="icon base-color sub-background-color"></Button>
-  <Button text="&#xea13; Sign up" (tap)="signUp()" class="icon base-color sub-background-color"></Button>
+
+  <StackLayout *ngIf="isHome">
+    <Button text="&#xea13; Sign in" (tap)="goSignUp()" class="icon base-color sub-background-color"></Button>
+    <Button text="&#xea13; Sign up" (tap)="goSignIn()" class="icon base-color sub-background-color"></Button>
+  </StackLayout>
+
+  <StackLayout *ngIf="isSignInForm">
+    <TextField [(ngModel)]="user.email" hint="Email" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
+    <TextField [(ngModel)]="user.password" hint="Password" secure="true"></TextField>
+    <Button text="&#xea13; Submit" (tap)="signIn()" class="icon base-color sub-background-color"></Button>
+    <Button text="&#xea13; Back" (tap)="backHome()" class="icon base-color sub-background-color"></Button>
+  </StackLayout>
+
+  <StackLayout *ngIf="isSignUpForm">
+    <TextField [(ngModel)]="user.name" hint="Name" keyboardType="text" autocorrect="false" autocapitalizationType="none"></TextField>
+    <TextField [(ngModel)]="user.email" hint="Email" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
+    <TextField [(ngModel)]="user.password" hint="Password" secure="true"></TextField>
+    <TextField [(ngModel)]="user.passwordConfirmation" hint="Confirm Password" secure="true"></TextField>
+    <Button text="&#xea13; Submit" (tap)="signUp()" class="icon base-color sub-background-color"></Button>
+    <Button text="&#xea13; Back" (tap)="backHome()" class="icon base-color sub-background-color"></Button>
+  </StackLayout>
+
 </StackLayout>
 
 <GridLayout *ngIf="isLogined" class="main-container logined main-background-color" row="0" colSpan="3" columns="*,*,*,*" rows="*,*,*,*" toggleNavButton>
