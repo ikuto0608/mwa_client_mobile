@@ -3,23 +3,24 @@ Border {
 }
 
 Label.question {
-  font-size: 40%;
+  font-size: 30%;
   vertical-align: middle;
   margin: 2%;
 }
 
 Button.answer {
-  font-size: 20px;
+  font-size: 19;
   margin: 1% 2% 1% 2%;
 }
 
 Label.description {
-  font-size: 20%;
+  font-size: 15%;
   vertical-align: middle;
   margin: 4%;
 }
 
 StackLayout.stopwatch {
+  margin: 10;
   font-size: 30%;
   text-align: center;
   vertical-align: middle;

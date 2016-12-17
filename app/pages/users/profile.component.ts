@@ -133,12 +133,22 @@ export class UsersProfileComponent implements OnInit, AfterViewInit {
   }
 
   getRow(indexOfTopic):number {
-    return indexOfTopic / 5;
+    return Math.floor(indexOfTopic / 5);
+  }
+
+  getRows() {
+    let numberOfLine: number = Math.floor((this.exams.length + 1) / 5) + 1;
+    let autoes = new Array<string>();
+    for (let i = 0; i < numberOfLine; i++) {
+      autoes.push("auto");
+    }
+
+    return autoes.join(',');
   }
 
   getStyle(indexOfTopic: number):string {
     let backgroundColor = this.japaneseColors[indexOfTopic];
-    return "background-color: " + backgroundColor + "; margin: 0;";
+    return "background-color: " + backgroundColor + ";";
   }
 
   shuffle(array: Array<string>) {
@@ -146,15 +156,5 @@ export class UsersProfileComponent implements OnInit, AfterViewInit {
       let j = Math.floor(Math.random() * i);
       [array[i - 1], array[j]] = [array[j], array[i - 1]];
     }
-  }
-
-  getRows() {
-    let numberOfLine = (this.exams.length / 5) + 1;
-    let autoes = new Array<string>();
-    for (let i = 0; i < numberOfLine; i++) {
-      autoes.push("auto");
-    }
-
-    return autoes.join(',');
   }
 }

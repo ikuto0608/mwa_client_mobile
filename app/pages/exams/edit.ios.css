@@ -1,45 +1,49 @@
 Label {
-  font-size: 20%;
-  margin: 0 0 1% 0;
+  font-size: 14;
+  margin: 5;
 }
 
 TextField.input.input-rounded {
-  height: 5%;
+  font-size: 14;
+  margin: 5;
 }
 
-Label.number_of_answer {
-  text-align: center;
-  font-size: 25%;
+Label.number-of-answer {
+  font-size: 19;
 }
 
 Label.minus {
-  text-align: right;
+  font-size: 12;
 }
 
 Label.plus {
-  text-align: left;
+  font-size: 12;
 }
 
-Button.topic, Button.add-topic {
-  font-size: 19;
-  color: #FCFAF2;
-  width: 100;
-  height: 100;
+Button.topic {
+  margin: 7;
+  padding: 10;
+  font-size: 13;
+  width: 60;
+  height: 60;
+}
+
+Button.add-topic {
+  margin: 7;
+  font-size: 13;
+  width: 60;
+  height: 60;
 }
 
 Button.blue {
-  color: #FCFAF2;
-  background-color: #81C7D4;
   margin: 5;
 }
 
 Button.red {
-  color: #FCFAF2;
-  background-color: #E03C8A;
   margin: 5;
 }
 
-Label.back {
-  margin: 17;
-  font-size: 25;
+Label.save, Label.back {
+  margin: 7;
+  font-size: 19;
 }

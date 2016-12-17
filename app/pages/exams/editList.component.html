@@ -1,5 +1,5 @@
 <StackLayout class="main-container main-background-color" colSpan="3" row="0">
-  <GridLayout columns="*" rows="auto,*">
+  <GridLayout columns="*" rows="*7,*93">
     <GridLayout row="0" columns="*,*,*,*,*" rows="*" class="base-background-color">
      <Label (tap)="newExam()" col="4" text="&#xea0a;" horizontalAlignment="right" class="icon new sub-color"></Label>
     </GridLayout>
@@ -19,4 +19,10 @@
   </GridLayout>
 </StackLayout>
 
-<ActivityIndicator class="main-container main-background-color" colSpan="3" row="1" [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
+<ActivityIndicator class="main-container main-background-color"
+                   colSpan="3"
+                   row="1"
+                   [busy]="isLoading"
+                   [visibility]="isLoading ? 'visible' : 'collapse'"
+                   horizontalAlignment="center"
+                   verticalAlignment="center"></ActivityIndicator>

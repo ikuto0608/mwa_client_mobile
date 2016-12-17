@@ -2,17 +2,19 @@
   <SearchBar id="serach_bar" #searchBar hint="Search Tag..." (propertyChange)="search(searchBar.text)"></SearchBar>
   <ListView [items]="exams | async" class="list-group">
     <template let-item="item">
-      <GridLayout (tap)="takeExam(item.id)" columns="auto,auto,*,*,*,*,*,auto" class="list-group-item">
-        <Label col="0" [text]="item.name[0] | uppercase" class="initial_letter sub-background-color base-color"></Label>
-        <Label col="1" [text]="item.name" class="title"></Label>
+      <GridLayout (tap)="takeExam(item.id)" columns="*10,*25,*25,*25,*15" rows="*10,*80,*10" class="list-group-item">
+        <Label col="0" rowspan="3" [text]="item.name[0] | uppercase" class="initial_letter sub-background-color base-color"></Label>
+        <Label col="1" colspan="5" row="1" [text]="item.name" class="title"></Label>
         <Label *ngFor="let tag of item.tags; let indexOfTag = index;"
                [text]="tag.name"
                class="tag vivid-background-color base-color"
-               [col]="indexOfTag + 2"></Label>
-        <Button col="7"
+               [col]="indexOfTag + 1"
+               row="2"></Label>
+        <Button col="4"
+                rowspan="3"
                 (tap)="editExam(item.id)"
                 text="Detail"
-                class="sub-background-color base-color"></Button>
+                class="detail sub-background-color base-color"></Button>
       </GridLayout>
     </template>
   </ListView>

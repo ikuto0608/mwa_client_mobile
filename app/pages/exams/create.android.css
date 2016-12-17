@@ -7,7 +7,7 @@ TextField.input.input-rounded {
   height: 5%;
 }
 
-Label.number_of_answer {
+Label.number-of-answer {
   text-align: center;
   font-size: 25%;
 }
@@ -39,7 +39,7 @@ Button.red {
   margin: 5;
 }
 
-Label.back {
+Label.save, Label.back {
   margin: 17;
   font-size: 25;
 }

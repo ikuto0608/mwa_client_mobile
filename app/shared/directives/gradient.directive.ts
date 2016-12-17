@@ -59,7 +59,7 @@ export class GradientDirective implements OnInit, OnDestroy, AfterViewInit {
     this.page.off(Page.loadedEvent, this.loadedEventFn);
   }
 
-  private setGradient() {
+  public setGradient() {
     console.log(`GradientDirective.setGradient()`);
 
     const startColor: Color = new Color(this.start);

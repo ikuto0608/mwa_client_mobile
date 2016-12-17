@@ -95,7 +95,7 @@ console.log(index);
   }
 
   getRows() {
-    let numberOfLine = ((this.exam.topics.length + 1) / 5) + 1;
+    let numberOfLine: number = Math.floor((this.exam.topics.length + 1) / 5) + 1;
     let autoes = new Array<string>();
     for (let i = 0; i < numberOfLine; i++) {
       autoes.push("auto");
@@ -109,18 +109,30 @@ console.log(index);
   }
 
   getRow(indexOfTopic):number {
-    return indexOfTopic / 5;
+    return Math.floor(indexOfTopic / 5);
   }
 
   getStyle(indexOfTopic: number):string {
     let backgroundColor = this.japaneseColors[indexOfTopic];
-    return "background-color: " + backgroundColor + "; margin: 0;";
+    return "background-color: " + backgroundColor + ";";
   }
 
   shuffle(array: Array<string>) {
     for (let i = array.length; i; i--) {
       let j = Math.floor(Math.random() * i);
       [array[i - 1], array[j]] = [array[j], array[i - 1]];
+    }
+  }
+
+  upNumberOfAnswer() {
+    if (this.exam.numberOfAnswer < 10) {
+      this.exam.numberOfAnswer += 1;
+    }
+  }
+
+  downNumberOfAnswer() {
+    if (this.exam.numberOfAnswer > 1) {
+      this.exam.numberOfAnswer -= 1;
     }
   }
 }

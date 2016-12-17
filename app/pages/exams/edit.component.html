@@ -1,64 +1,92 @@
 <StackLayout class="main-container" colSpan="3" row="0">
 
-  <StackLayout *ngIf="!editting && exam" class="form">
-    <StackLayout class="input-field">
-      <Label text="Name" textWrap="true"></Label>
-      <TextField [(ngModel)]="exam.name" class="input input-rounded" hint="Name" textWrap="true"></TextField>
-      <Label text="Description" textWrap="true"></Label>
-      <TextField [(ngModel)]="exam.description" class="input input-rounded" hint="Description" textWrap="true"></TextField>
+  <GridLayout *ngIf="!editting" columns="*" rows="*7,*93">
+    <GridLayout row="0" columns="*,*,*,*,*" rows="*" class="base-background-color">
+      <Label (tap)="backToList()" col="2" text="&#xe960;" horizontalAlignment="center" class="icon save sub-color"></Label>
+    </GridLayout>
 
-      <GridLayout rows="auto auto" columns="50 * 50">
-        <Label row="0" col="0" colspan="2" text="Number of Answers for each Question:" textWrap="true"></Label>
-        <Label row="0" col="2" class="number_of_answer" [text]="exam.numberOfAnswer" textWrap="true"></Label>
-        <Label class="icon minus" text="&#xea0b;" textWrap="true" row="1" col="0" fontSize="15"></Label>
-        <Slider [(ngModel)]="exam.numberOfAnswer" minValue="1" value="1" maxValue="5" row="1" col="1"></Slider>
-        <Label class="icon plus" text="&#xea0a;" textWrap="true" row="1" col="2" fontSize="15"></Label>
-      </GridLayout>
-    </StackLayout>
+    <StackLayout *ngIf="exam" row="1" class="form">
+      <StackLayout class="input-field">
+        <Label text="Name:" textWrap="true"></Label>
+        <TextField [(ngModel)]="exam.name" class="input input-rounded" hint="Name"></TextField>
+        <Label text="Description:" textWrap="true"></Label>
+        <TextField [(ngModel)]="exam.description" class="input input-rounded" hint="Description"></TextField>
 
-    <ScrollView orientation="vertical">
-      <GridLayout rows="auto,auto">
-        <GridLayout row="0" columns="*,*,*,*,*" [rows]="getRows()" toggleNavButton class="exams">
+        <GridLayout rows="auto,auto" columns="*,*,*">
+          <Label row="0" col="0" colspan="2" text="Number of Answers for each Question:" textWrap="true"></Label>
+          <Label (tap)="downNumberOfAnswer()"
+                 text="&#xea0b;"
+                 class="icon minus blue"
+                 row="1"
+                 col="0"
+                 horizontalAlignment="center"></Label>
+          <Label [text]="exam.numberOfAnswer"
+                 row="1"
+                 col="1"
+                 class="number-of-answer blue"
+                 horizontalAlignment="center"></Label>
+          <Label (tap)="upNumberOfAnswer()"
+                 text="&#xea0a;"
+                 class="icon plus blue"
+                 row="1"
+                 col="2"
+                 horizontalAlignment="center"></Label>
+        </GridLayout>
+      </StackLayout>
+
+      <ScrollView orientation="vertical">
+        <GridLayout columns="*,*,*,*,*" [rows]="getRows()" toggleNavButton class="exams">
           <Button *ngFor="let topic of exam.topics; let indexOfTopic = index"
                   (tap)="openEditView(indexOfTopic)"
                   (longPress)="deleteTopic(indexOfTopic)"
                   [col]="getCol(indexOfTopic)"
                   [row]="getRow(indexOfTopic)"
                   [text]="indexOfTopic + 1"
+                  class="topic base-color"
                   [style]="getStyle(indexOfTopic)"
-                  class="topic"
                   textWrap="true"></Button>
-
           <Button (tap)="addTopic()"
                   [col]="getCol(exam.topics.length)"
                   [row]="getRow(exam.topics.length)"
-                  text="+"
-                  class="add-topic"></Button>
+                  text="&#xea0a;"
+                  class="icon add-topic base-background-color sub-color"></Button>
         </GridLayout>
-        <Button row="1" (tap)="updateExam()" text="Update" class="btn btn-primary"></Button>
-      </GridLayout>
-    </ScrollView>
-  </StackLayout>
+      </ScrollView>
 
-  <StackLayout *ngIf="editting" class="form">
-    <Label class="label" text="Question" textWrap="true"></Label>
-    <TextView [(ngModel)]="exam.topics[indexOfTopic].question" hint="Question" class="input input-border" returnKeyType="done" (returnPress)="submit($event)"></TextView>
-
-    <StackLayout *ngIf="exam.topics[indexOfTopic].question">
-      <Label class="label" text="Choose Answer" textWrap="true"></Label>
-      <FlexboxLayout *ngFor="let line of (exam.topics[indexOfTopic].question.split(' ').length / 5) | times">
-        <Button *ngFor="let word of exam.topics[indexOfTopic].question.split(' ').slice(line * 5, (line * 5) + 5); let indexOfWord = index"
-                (tap)="setAnswer(indexOfWord + (line * 5))"
-                [ngClass]="{ 'blue': !isAnswerSelected(indexOfWord + (line * 5)), 'red': isAnswerSelected(indexOfWord + (line * 5)) }"
-                [text]="word"
-                flexGrow="1"></Button>
-      </FlexboxLayout>
     </StackLayout>
+  </GridLayout>
 
-    <Label class="label" text="Description" textWrap="true"></Label>
-    <TextView [(ngModel)]="exam.topics[indexOfTopic].description" hint="Description" class="input input-border" returnKeyType="done" (returnPress)="submit($event)"></TextView>
+  <GridLayout *ngIf="editting" columns="*" rows="*7,*93">
+    <GridLayout row="0" columns="*,*,*,*,*" rows="*" class="base-background-color">
+      <Label (tap)="backToList()" col="0" text="&#xea40;" horizontalAlignment="left" class="icon back sub-color"></Label>
+    </GridLayout>
 
-    <Button text="Back" (tap)="backToList()" class="btn btn-primary"></Button>
-  </StackLayout>
+    <StackLayout row="1" class="form">
+      <Label class="label" text="Question" textWrap="true"></Label>
+      <TextView [(ngModel)]="exam.topics[indexOfTopic].question" hint="Question" class="input input-border" returnKeyType="done" (returnPress)="submit($event)"></TextView>
+
+      <StackLayout *ngIf="exam.topics[indexOfTopic].question">
+        <Label class="label" text="Choose Answer" textWrap="true"></Label>
+        <FlexboxLayout *ngFor="let line of (exam.topics[indexOfTopic].question.split(' ').length / 5) | times">
+          <Button *ngFor="let word of exam.topics[indexOfTopic].question.split(' ').slice(line * 5, (line * 5) + 5); let indexOfWord = index"
+                  (tap)="setAnswer(indexOfWord + (line * 5))"
+                  [ngClass]="{
+                                'blue': !isAnswerSelected(indexOfWord + (line * 5)),
+                                'red': isAnswerSelected(indexOfWord + (line * 5))
+                              }"
+                  [class.selected]="isAnswerSelected(indexOfWord)"
+                  [text]="word"
+                  flexGrow="1"></Button>
+        </FlexboxLayout>
+      </StackLayout>
+
+      <Label class="label" text="Description" textWrap="true"></Label>
+      <TextView [(ngModel)]="exam.topics[indexOfTopic].description"
+                hint="Description"
+                class="input input-border"
+                returnKeyType="done"
+                (returnPress)="submit($event)"></TextView>
+    </StackLayout>
+  </GridLayout>
 
 </StackLayout>

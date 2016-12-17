@@ -19,24 +19,26 @@ Label.image {
 }
 
 Label.name {
-  font-size: 32;
+  font-size: 20;
   margin: 0 0 30 0;
 }
 
 Label.icon {
-  font-size: 19;
+  font-size: 14;
   margin: 11 11 0 11;
 }
 
 Label.title {
-  font-size: 31;
+  font-size: 20;
   margin: 0 11 0 11;
 }
 
 Button.exam {
-  font-size: 19;
-  width: 100;
-  height: 100;
+  margin: 7;
+  padding: 10;
+  font-size: 13;
+  width: 60;
+  height: 60;
 }
 
 GridLayout.history-title, ListView.history-list {
@@ -45,20 +47,20 @@ GridLayout.history-title, ListView.history-list {
 }
 
 GridLayout.history-title Label.score,  ListView.history-list Label.score {
-  width: 50;
+  width: 10%;
 }
 
 GridLayout.history-title Label.record-time,  ListView.history-list Label.record-time {
-  width: 200;
+  width: 35%;
 }
 
 GridLayout.history-title Label.record-date,  ListView.history-list Label.record-date {
-  width: 250;
+  width: 55%;
 }
 
 GridLayout.history-title Label, ListView.history-list Label {
   text-align: center;
   margin: 5;
   padding: 0;
-  font-size: 18;
+  font-size: 14;
 }
