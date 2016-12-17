@@ -13,7 +13,7 @@ import { ExamService } from '../../shared/services/exam.service';
 @Component({
   selector: 'exams-result',
   templateUrl: 'pages/exams/result.component.html',
-  styleUrls: ['pages/exams/result.component.css'],
+  styleUrls: ['pages/exams/result-common.css', 'pages/exams/result.css'],
 })
 export class ExamsResultComponent implements OnInit {
   public exam: Exam;

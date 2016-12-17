@@ -8,7 +8,7 @@ import { ExamService } from '../../shared/services/exam.service';
 @Component({
   selector: 'exams-edit-list',
   templateUrl: 'pages/exams/editList.component.html',
-  styleUrls: ['pages/exams/editList.component.css'],
+  styleUrls: ['pages/exams/editlist-common.css', 'pages/exams/editlist.css'],
   providers: [ExamService],
 })
 export class ExamsEditListComponent implements OnInit {
@@ -31,7 +31,7 @@ export class ExamsEditListComponent implements OnInit {
   }
 
   newExam() {
-    this.router.navigate(['exams-new']);
+    this.router.navigate(['exams-create']);
   }
 
   editExam(id: number) {

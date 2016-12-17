@@ -1,4 +1,10 @@
 @import 'app-common';
-@import 'nativescript-theme-core/scss/platforms/index.android';
+// @import 'nativescript-theme-core/scss/platforms/index.android';
 
 // Place any CSS rules you want to apply only on Android here
+
+GridLayout.footer-container Label.icon {
+  font-size: 27;
+  margin: 15;
+  text-align: center;
+}

@@ -1,12 +1,12 @@
 // Import the theme’s variables. If you’re using a color scheme
 // other than “light”, switch the path to the alternative scheme,
 // for example 'nativescript-theme-core/scss/dark'.
-@import 'nativescript-theme-core/scss/aqua';
+// @import 'nativescript-theme-core/scss/aqua';
 
 // Customize any of the theme’s variables here, for instance $btn-color: red;
 
 // Import the theme’s main ruleset.
-@import 'nativescript-theme-core/scss/index';
+// @import 'nativescript-theme-core/scss/index';
 
 // Place any CSS rules you want to apply on both iOS and Android here.
 // This is where the vast majority of your CSS code goes.
@@ -15,23 +15,7 @@
   font-family: 'IcoMoon-Free';
 }
 
-GridLayout.header-container {
-}
-
-GridLayout.header-container Image {
-  margin: 0;
-  padding: 0;
-  width: 50px;
-  height: 50px;
-  vertical-align: middle;
-  text-align: center;
-}
-
 StackLayout.main-container, GridLayout.main-container {
-  padding: 0;
-}
-
-GridLayout.footer-container {
   padding: 0;
 }
 

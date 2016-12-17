@@ -17,7 +17,7 @@ import { ExamService } from '../../shared/services/exam.service';
 @Component({
   selector: 'exams-index',
   templateUrl: 'pages/exams/index.component.html',
-  styleUrls: ['pages/exams/index.component.css'],
+  styleUrls: ['pages/exams/index-common.css', 'pages/exams/index.css'],
   providers: [ExamService],
 })
 export class ExamsIndexComponent implements OnInit, AfterViewInit {

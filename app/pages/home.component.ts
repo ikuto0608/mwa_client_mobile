@@ -11,7 +11,7 @@ import { UserService } from '../shared/services/user.service';
 @Component({
   selector: 'home',
   templateUrl: 'pages/home.component.html',
-  styleUrls: ['pages/home.component.css'],
+  styleUrls: ['pages/home-common.css', 'pages/home.css'],
   providers: [UserService],
 })
 export class HomeComponent implements OnInit {

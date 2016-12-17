@@ -3,7 +3,7 @@ import { ExamsIndexComponent } from './pages/exams/index.component';
 import { ExamsTakeComponent } from './pages/exams/take.component';
 import { ExamsResultComponent } from './pages/exams/result.component';
 import { ExamsEditListComponent } from './pages/exams/editList.component';
-import { ExamsNewComponent } from './pages/exams/new.component';
+import { ExamsCreateComponent } from './pages/exams/create.component';
 import { ExamsEditComponent } from './pages/exams/edit.component';
 import { UsersProfileComponent } from './pages/users/profile.component';
 import { StopwatchComponent } from './pages/stopwatch.component';
@@ -14,7 +14,7 @@ export const routes = [
   { path: 'exams-take/:id', component: ExamsTakeComponent },
   { path: 'exams-result', component: ExamsResultComponent },
   { path: 'exams-edit-list', component: ExamsEditListComponent },
-  { path: 'exams-new', component: ExamsNewComponent },
+  { path: 'exams-create', component: ExamsCreateComponent },
   { path: 'exams-edit/:id', component: ExamsEditComponent },
   { path: 'user-profile', component: UsersProfileComponent },
 ];
@@ -25,7 +25,7 @@ export const navigatableComponents = [
   ExamsTakeComponent,
   ExamsResultComponent,
   ExamsEditListComponent,
-  ExamsNewComponent,
+  ExamsCreateComponent,
   ExamsEditComponent,
   UsersProfileComponent,
   StopwatchComponent,

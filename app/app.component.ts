@@ -11,7 +11,7 @@ import './rxjs-extensions';
 export class AppComponent {
   public HOME = "/";
   public EXAM_INDEX = "/exams-index";
-  public EXAM_NEW = "/exams-new";
+  public EXAM_CREATE = "/exams-create";
   public EXAM_EDIT = "/exams-edit";
   public EXAM_TAKE = "/exams-take";
   public EXAM_RESULT = "/exams-result";

@@ -1,0 +1,64 @@
+GridLayout.header {
+  height: 47%;
+}
+
+Label {
+  text-align: center;
+  vertical-align: middle;
+}
+
+Label.image {
+  background-image: url("res://logo");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 53%;
+  width: 31%;
+  border-radius: 100%;
+  margin: 50 0 30 0;
+}
+
+Label.name {
+  font-size: 32;
+  margin: 0 0 30 0;
+}
+
+Label.icon {
+  font-size: 19;
+  margin: 11 11 0 11;
+}
+
+Label.title {
+  font-size: 31;
+  margin: 0 11 0 11;
+}
+
+Button.exam {
+  font-size: 19;
+  width: 100;
+  height: 100;
+}
+
+GridLayout.history-title, ListView.history-list {
+  margin: 0;
+  padding: 0;
+}
+
+GridLayout.history-title Label.score,  ListView.history-list Label.score {
+  width: 50;
+}
+
+GridLayout.history-title Label.record-time,  ListView.history-list Label.record-time {
+  width: 200;
+}
+
+GridLayout.history-title Label.record-date,  ListView.history-list Label.record-date {
+  width: 250;
+}
+
+GridLayout.history-title Label, ListView.history-list Label {
+  text-align: center;
+  margin: 5;
+  padding: 0;
+  font-size: 18;
+}

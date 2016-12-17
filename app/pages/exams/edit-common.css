@@ -1,0 +1,45 @@
+Label {
+  font-size: 20%;
+  margin: 0 0 1% 0;
+}
+
+TextField.input.input-rounded {
+  height: 5%;
+}
+
+Label.number_of_answer {
+  text-align: center;
+  font-size: 25%;
+}
+
+Label.minus {
+  text-align: right;
+}
+
+Label.plus {
+  text-align: left;
+}
+
+Button.topic, Button.add-topic {
+  font-size: 19;
+  color: #FCFAF2;
+  width: 100;
+  height: 100;
+}
+
+Button.blue {
+  color: #FCFAF2;
+  background-color: #81C7D4;
+  margin: 5;
+}
+
+Button.red {
+  color: #FCFAF2;
+  background-color: #E03C8A;
+  margin: 5;
+}
+
+Label.back {
+  margin: 17;
+  font-size: 25;
+}

@@ -13,7 +13,7 @@ import { ExamService } from '../../shared/services/exam.service';
 @Component({
   selector: 'exams-take',
   templateUrl: 'pages/exams/take.component.html',
-  styleUrls: ['pages/exams/take.component.css'],
+  styleUrls: ['pages/exams/take-common.css', 'pages/exams/take.css'],
 })
 export class ExamsTakeComponent implements OnInit, AfterViewInit {
   @ViewChild('stopwatchComponent') stopwatchComponent: any;

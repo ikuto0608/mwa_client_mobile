@@ -15,7 +15,7 @@ import { ExamService } from '../../shared/services/exam.service';
 @Component({
   selector: 'exams-edit',
   templateUrl: 'pages/exams/edit.component.html',
-  styleUrls: ['pages/exams/new.component.css'],
+  styleUrls: ['pages/exams/edit-common.css', 'pages/exams/edit.css'],
 })
 export class ExamsEditComponent implements OnInit {
   public exam: Exam;

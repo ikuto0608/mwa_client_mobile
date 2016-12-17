@@ -1,18 +1,17 @@
 <StackLayout *ngIf="!isLogined" class="main-container come-across main-background-color" colSpan="3" row="0" horizontalAlignment="center" verticalAlignment="center">
-
-  <StackLayout *ngIf="isHome">
+  <StackLayout *ngIf="isHome" horizontalAlignment="center" verticalAlignment="center">
     <Button text="&#xea13; Sign in" (tap)="goSignUp()" class="icon base-color sub-background-color"></Button>
     <Button text="&#xea13; Sign up" (tap)="goSignIn()" class="icon base-color sub-background-color"></Button>
   </StackLayout>
 
-  <StackLayout *ngIf="isSignInForm">
+  <StackLayout *ngIf="isSignInForm" horizontalAlignment="center" verticalAlignment="center">
     <TextField [(ngModel)]="user.email" hint="Email" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
     <TextField [(ngModel)]="user.password" hint="Password" secure="true"></TextField>
     <Button text="&#xea13; Submit" (tap)="signIn()" class="icon base-color sub-background-color"></Button>
     <Button text="&#xea13; Back" (tap)="backHome()" class="icon base-color sub-background-color"></Button>
   </StackLayout>
 
-  <StackLayout *ngIf="isSignUpForm">
+  <StackLayout *ngIf="isSignUpForm" horizontalAlignment="center" verticalAlignment="center">
     <TextField [(ngModel)]="user.name" hint="Name" keyboardType="text" autocorrect="false" autocapitalizationType="none"></TextField>
     <TextField [(ngModel)]="user.email" hint="Email" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
     <TextField [(ngModel)]="user.password" hint="Password" secure="true"></TextField>
@@ -20,28 +19,41 @@
     <Button text="&#xea13; Submit" (tap)="signUp()" class="icon base-color sub-background-color"></Button>
     <Button text="&#xea13; Back" (tap)="backHome()" class="icon base-color sub-background-color"></Button>
   </StackLayout>
-
 </StackLayout>
 
-<GridLayout *ngIf="isLogined" class="main-container logined main-background-color" row="0" colSpan="3" columns="*,*,*,*" rows="*,*,*,*" toggleNavButton>
+<GridLayout *ngIf="isLogined"
+            class="main-container logined main-background-color"
+            row="0"
+            colSpan="3"
+            columns="*,*,*,*,*,*,*,*,*,*,*,*,*"
+            rows="*,*,*,*,*,*,*,*,*,*,*,*,*"
+            toggleNavButton>
   <Button (tap)="goTest()"
           text="&#xe9ba;"
-          col="1"
-          row="1"
+          col="3"
+          row="4"
+          colspan="3"
+          rowspan="2"
           class="icon base-color sub-background-color"></Button>
   <Button (tap)="editTest()"
           text="&#xe907;"
-          col="2"
-          row="1"
+          col="7"
+          row="4"
+          colspan="3"
+          rowspan="2"
           class="icon base-color sub-background-color"></Button>
   <Button (tap)="goProfile()"
           text="&#xe971;"
-          col="1"
-          row="2"
+          col="3"
+          row="7"
+          colspan="3"
+          rowspan="2"
           class="icon base-color sub-background-color"></Button>
   <Button (tap)="logout()"
           text="&#xea14;"
-          col="2"
-          row="2"
+          col="7"
+          row="7"
+          colspan="3"
+          rowspan="2"
           class="icon base-color sub-background-color"></Button>
 </GridLayout>

@@ -11,7 +11,7 @@ import { UserService } from '../../shared/services/user.service';
 @Component({
   selector: 'user-profile',
   templateUrl: 'pages/users/profile.component.html',
-  styleUrls: ['pages/users/profile.component.css'],
+  styleUrls: ['pages/users/profile-common.css', 'pages/users/profile.css'],
   providers: [UserService],
   animations: [
     trigger('examListState', [
