@@ -1,10 +1,11 @@
 Label {
   font-size: 20%;
-  margin: 0 0 1% 0;
+  margin: 10;
 }
 
-TextField.input.input-rounded {
-  height: 5%;
+TextField {
+  height: 20;
+  margin: 10;
 }
 
 Label.number-of-answer {
@@ -22,21 +23,8 @@ Label.plus {
 
 Button.topic, Button.add-topic {
   font-size: 19;
-  color: #FCFAF2;
   width: 100;
   height: 100;
-}
-
-Button.blue {
-  color: #FCFAF2;
-  background-color: #81C7D4;
-  margin: 5;
-}
-
-Button.red {
-  color: #FCFAF2;
-  background-color: #E03C8A;
-  margin: 5;
 }
 
 Label.save, Label.back {

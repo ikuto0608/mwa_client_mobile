@@ -27,18 +27,6 @@ Button.topic, Button.add-topic {
   height: 100;
 }
 
-Button.blue {
-  color: #FCFAF2;
-  background-color: #81C7D4;
-  margin: 5;
-}
-
-Button.red {
-  color: #FCFAF2;
-  background-color: #E03C8A;
-  margin: 5;
-}
-
 Label.back {
   margin: 17;
   font-size: 25;

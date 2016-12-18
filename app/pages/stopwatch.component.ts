@@ -4,6 +4,7 @@ var timer = require("timer");
 @Component({
   selector: 'stopwatch',
   templateUrl: 'pages/stopwatch.component.html',
+  styleUrls: ['pages/stopwatch-common.css', 'pages/stopwatch.css'],
 })
 export class StopwatchComponent {
   @ViewChild('stopwatchComponent') stopwatchComponent: StopwatchComponent;

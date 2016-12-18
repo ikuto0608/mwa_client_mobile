@@ -35,14 +35,6 @@ Button.add-topic {
   height: 60;
 }
 
-Button.blue {
-  margin: 5;
-}
-
-Button.red {
-  margin: 5;
-}
-
 Label.save, Label.back {
   margin: 7;
   font-size: 19;

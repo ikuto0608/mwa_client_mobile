@@ -1,6 +1,6 @@
 GridLayout.list-group-item {
     margin: 0;
-    padding: 10 15 10 15;
+    padding: 5;
 }
 
 GridLayout.list-group-item Label {
@@ -17,19 +17,19 @@ GridLayout.list-group-item Label.initial_letter {
 
 GridLayout.list-group-item Label.title {
   font-size: 22px;
-  padding: 0 10px 0 10px;
+}
+
+GridLayout.list-group-item Label.tag {
+  margin: 5;
+  padding: 2 5;
+  font-size: 14;
+  text-align: center;
+  border-radius: 21;
+  width: 18%;
 }
 
 GridLayout.list-group-item Button.edit {
   margin: 0;
   padding: 0;
   width: 10%;
-}
-
-GridLayout.list-group-item Label.tag {
-  margin: 5px;
-  padding: 5px 10px;
-  font-size: 12px;
-  text-align: center;
-  border-radius: 21px;
 }

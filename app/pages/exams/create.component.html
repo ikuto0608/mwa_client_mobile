@@ -2,7 +2,7 @@
 
   <GridLayout *ngIf="!editting" columns="*" rows="*7,*93">
     <GridLayout row="0" columns="*,*,*,*,*" rows="*" class="base-background-color">
-      <Label (tap)="backToList()" col="2" text="&#xe960;" horizontalAlignment="center" class="icon save sub-color"></Label>
+      <Label (tap)="backToList()" col="2" text="&#xe960;" horizontalAlignment="center" verticalAlignment="center" class="icon save sub-color"></Label>
     </GridLayout>
 
     <StackLayout row="1" class="form">
@@ -70,9 +70,10 @@
         <FlexboxLayout *ngFor="let line of (exam.topics[indexOfTopic].question.split(' ').length / 5) | times">
           <Button *ngFor="let word of exam.topics[indexOfTopic].question.split(' ').slice(line * 5, (line * 5) + 5); let indexOfWord = index"
                   (tap)="setAnswer(indexOfWord + (line * 5))"
+                  class="base-color"
                   [ngClass]="{
-                                'blue': !isAnswerSelected(indexOfWord + (line * 5)),
-                                'red': isAnswerSelected(indexOfWord + (line * 5))
+                                'blue-background': !isAnswerSelected(indexOfWord + (line * 5)),
+                                'red-background': isAnswerSelected(indexOfWord + (line * 5))
                               }"
                   [class.selected]="isAnswerSelected(indexOfWord)"
                   [text]="word"

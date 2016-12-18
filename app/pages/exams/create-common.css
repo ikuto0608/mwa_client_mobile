@@ -20,18 +20,6 @@ Label.plus {
   text-align: left;
 }
 
-Button.blue {
-  color: #FCFAF2;
-  background-color: #81C7D4;
-  margin: 5;
-}
-
-Button.red {
-  color: #FCFAF2;
-  background-color: #E03C8A;
-  margin: 5;
-}
-
 Label.save, Label.back {
   margin: 10;
   font-size: 14;

@@ -1,6 +1,6 @@
 Label.new {
-  margin: 20;
   font-size: 19;
+  margin-right: 25;
 }
 
 GridLayout.list-group-item {
