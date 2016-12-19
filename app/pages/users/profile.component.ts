@@ -23,14 +23,12 @@ declare var UIColor: any;
       transition('inactive => active', [
         animate(400, keyframes([
           style({ opacity: 0, transform: 'translateX(-1000)', offset: 0 }),
-          style({ opacity: 0.5, transform: 'translateX(-300)', offset: 0.9 }),
           style({ opacity: 1, transform: 'translateX(0)', offset: 1 })
         ]))
       ]),
       transition('active => inactive', [
         animate(200, keyframes([
           style({ opacity: 1, transform: 'translateX(0)', offset: 0 }),
-          style({ opacity: 0.5, transform: 'translateX(-300)', offset: 0.9 }),
           style({ opacity: 0, transform: 'translateX(-1000)', offset: 1 })
         ]))
       ])
@@ -41,14 +39,12 @@ declare var UIColor: any;
       transition('inactive => active', [
         animate(300, keyframes([
           style({ opacity: 0, transform: 'translateX(1000)', offset: 0 }),
-          style({ opacity: 0.5, transform: 'translateX(300)', offset: 0.9 }),
           style({ opacity: 1, transform: 'translateX(0)', offset: 1 })
         ]))
       ]),
       transition('active => inactive', [
         animate(200, keyframes([
           style({ opacity: 1, transform: 'translateX(0)', offset: 0 }),
-          style({ opacity: 0.5, transform: 'translateX(300)', offset: 0.9 }),
           style({ opacity: 0, transform: 'translateX(1000)', offset: 1 })
         ]))
       ])
