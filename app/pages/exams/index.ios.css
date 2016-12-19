@@ -1,5 +1,7 @@
 ListView.list-group {
   height: 92%;
+  background-color: transparent;
+  margin: 0 20 0 5;
 }
 
 GridLayout.list-group-item {

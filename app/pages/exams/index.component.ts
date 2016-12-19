@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Page } from "ui/page";
 import dialog = require('ui/dialogs');
+import { ItemEventData } from 'ui/list-view';
 
 import '../../rxjs-extensions';
 import { Subject } from 'rxjs/Subject';
@@ -13,6 +14,8 @@ import { Tag } from '../../shared/models/tag';
 import { Topic } from '../../shared/models/topic';
 
 import { ExamService } from '../../shared/services/exam.service';
+
+declare var UIColor: any;
 
 @Component({
   selector: 'exams-index',
@@ -86,5 +89,11 @@ export class ExamsIndexComponent implements OnInit, AfterViewInit {
 
   editExam(id: number) {
     this.router.navigate(['exams-edit/' + id]);
+  }
+
+  onItemLoading(args: ItemEventData) {
+    if (args.ios) {
+      args.ios.backgroundColor = UIColor.clearColor();
+    }
   }
 }

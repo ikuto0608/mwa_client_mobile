@@ -39,3 +39,7 @@ Label.save, Label.back {
   margin: 7;
   font-size: 19;
 }
+
+Button.word {
+  margin: 5;
+}

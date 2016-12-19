@@ -1,6 +1,6 @@
-<StackLayout class="main-container main-background-color" colSpan="3" row="0">
+<StackLayout class="main-container" colSpan="3" row="0" [gradient]="'#A1FFCE'" [endColor]="'#FAFFD1'">
   <SearchBar id="serach_bar" #searchBar hint="Search Tag..." (propertyChange)="search(searchBar.text)"></SearchBar>
-  <ListView [items]="exams | async" class="list-group">
+  <ListView (itemLoading)="onItemLoading($event)" [items]="exams | async" class="list-group">
     <template let-item="item">
       <GridLayout (tap)="takeExam(item.id)" columns="*10,*20,*20,*20,*15,*15" rows="*10,*80,*10" class="list-group-item">
         <Label col="0" rowspan="3" [text]="item.name[0] | uppercase" class="initial_letter sub-background-color base-color"></Label>
@@ -24,6 +24,4 @@
                    colSpan="3"
                    row="1"
                    [busy]="isLoading"
-                   [visibility]="isLoading ? 'visible' : 'collapse'"
-                   horizontalAlignment="center"
-                   verticalAlignment="center"></ActivityIndicator>
+                   [visibility]="isLoading ? 'visible' : 'collapse'"></ActivityIndicator>

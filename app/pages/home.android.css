@@ -1,0 +1,8 @@
+GridLayout.main-container Button {
+  font-size: 23;
+}
+
+
+GridLayout.main-container.logined Button {
+  font-size: 33;
+}

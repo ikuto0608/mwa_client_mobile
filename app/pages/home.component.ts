@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { Page } from "ui/page";
-import { ActionBar } from 'ui/action-bar';
 import { GridLayout } from 'ui/layouts/grid-layout';
 import { View } from "ui/core/view";
 

@@ -1,4 +1,4 @@
-<StackLayout class="main-container" colSpan="3" row="0">
+<StackLayout class="main-container" colSpan="3" row="0" [gradient]="'#A1FFCE'" [endColor]="'#FAFFD1'">
 
   <GridLayout *ngIf="!editting" columns="*" rows="*7,*93">
     <GridLayout row="0" columns="*,*,*,*,*" rows="*" class="base-background-color">
@@ -63,14 +63,19 @@
 
     <StackLayout row="1" class="form">
       <Label class="label" text="Question" textWrap="true"></Label>
-      <TextView [(ngModel)]="exam.topics[indexOfTopic].question" hint="Question" class="input input-border" returnKeyType="done" (returnPress)="submit($event)"></TextView>
+      <TextView [(ngModel)]="exam.topics[indexOfTopic].question"
+                hint="Question"
+                class="input input-border"
+                returnKeyType="done"
+                backgroundColor="Transparent"
+                (returnPress)="submit($event)"></TextView>
 
       <StackLayout *ngIf="exam.topics[indexOfTopic].question">
         <Label class="label" text="Choose Answer" textWrap="true"></Label>
         <FlexboxLayout *ngFor="let line of (exam.topics[indexOfTopic].question.split(' ').length / 5) | times">
           <Button *ngFor="let word of exam.topics[indexOfTopic].question.split(' ').slice(line * 5, (line * 5) + 5); let indexOfWord = index"
                   (tap)="setAnswer(indexOfWord + (line * 5))"
-                  class="base-color"
+                  class="word base-color"
                   [ngClass]="{
                                 'blue-background': !isAnswerSelected(indexOfWord + (line * 5)),
                                 'red-background': isAnswerSelected(indexOfWord + (line * 5))
@@ -86,6 +91,7 @@
                 hint="Description"
                 class="input input-border"
                 returnKeyType="done"
+                backgroundColor="Transparent"
                 (returnPress)="submit($event)"></TextView>
     </StackLayout>
   </GridLayout>

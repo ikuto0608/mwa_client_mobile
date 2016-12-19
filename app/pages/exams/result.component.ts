@@ -4,11 +4,14 @@ import { Observable } from "rxjs/Rx";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/map";
 import { Page } from "ui/page";
+import { ItemEventData } from 'ui/list-view';
 
 import { Exam } from '../../shared/models/exam';
 import { Question } from '../../shared/models/question';
 
 import { ExamService } from '../../shared/services/exam.service';
+
+declare var UIColor: any;
 
 @Component({
   selector: 'exams-result',
@@ -39,5 +42,11 @@ export class ExamsResultComponent implements OnInit {
 
   backHome() {
     this.router.navigate(['']);
+  }
+
+  onItemLoading(args: ItemEventData) {
+    if (args.ios) {
+      args.ios.backgroundColor = UIColor.clearColor();
+    }
   }
 }

@@ -1,5 +1,5 @@
 Label {
-  margin: 5 0;
+  margin: 5;
   vertical-align: middle;
 }
 
@@ -8,37 +8,34 @@ Label.score, Label.time, Label.list {
   font-size: 24;
 }
 
-Label.score.icon {
-  background-color: #FB966E;
-}
-
-Label.time.icon {
-  background-color: #A5DEE4;
-}
-
-Label.list.icon {
-  background-color: #FFC408;
-}
-
 Label.score.icon, Label.time.icon, Label.list.icon {
-  width: 84px;
+  width: 84;
   margin: 0;
-  padding: 30px 0;
+  padding: 30 0;
   text-align: center;
   color: #FCFAF2;
 }
 
 GridLayout.correct Label.icon, GridLayout.wrong Label.icon {
-  font-size: 24;
-  margin: 0 10 0 0;
+  font-size: 20;
+  margin: 0 10;
   padding: 0;
   vertical-align: middle;
 }
 
-GridLayout Label.icon.red {
-  color: #CB1B45;
+ListView.list-group {
+  margin: 0 20 0 5;
+  background-color: transparent;
 }
 
-GridLayout Label.icon.green {
-  color: #58B2DC;
+Label.sentence {
+  font-size: 14;
+}
+
+Label.description {
+  font-size: 10;
+}
+
+Button.back {
+  margin: 10;
 }

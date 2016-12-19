@@ -1,4 +1,4 @@
-<StackLayout class="main-container" colSpan="3" row="0">
+<StackLayout class="main-container" colSpan="3" row="0" rowspan="2" [gradient]="'#A1FFCE'" [endColor]="'#FAFFD1'">
   <GridLayout *ngIf="exam" columns="*,*" rows="*,*,*,*,*,*,*" toggleNavButton>
     <Label [text]="exam.questions[questionIndex].sentence" col="0" row="0" colSpan="2" rowSpan="3" class="question" textWrap="true"></Label>
     <Button *ngFor="let answer of exam.questions[questionIndex].answers; let indexOfAnswer = index;"

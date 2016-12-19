@@ -1,32 +1,36 @@
-<StackLayout *ngIf="!isLogined" class="main-container come-across main-background-color" colSpan="3" row="0" horizontalAlignment="center" verticalAlignment="center">
-  <StackLayout *ngIf="isHome" horizontalAlignment="center" verticalAlignment="center">
-    <Button text="&#xea13; Sign in" (tap)="goSignUp()" class="icon base-color sub-background-color"></Button>
-    <Button text="&#xea13; Sign up" (tap)="goSignIn()" class="icon base-color sub-background-color"></Button>
-  </StackLayout>
+<GridLayout *ngIf="!isLogined"
+             colSpan="3"
+             row="0"
+             columns="*,*,*,*,*,*,*,*,*,*,*,*,*"
+             rows="*,*,*,*,*,*,*,*,*,*,*,*,*"
+             class="main-container come-across"
+             [gradient]="'#A1FFCE'" [endColor]="'#FAFFD1'">
 
-  <StackLayout *ngIf="isSignInForm" horizontalAlignment="center" verticalAlignment="center">
-    <TextField [(ngModel)]="user.email" hint="Email" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
-    <TextField [(ngModel)]="user.password" hint="Password" secure="true"></TextField>
-    <Button text="&#xea13; Submit" (tap)="signIn()" class="icon base-color sub-background-color"></Button>
-    <Button text="&#xea13; Back" (tap)="backHome()" class="icon base-color sub-background-color"></Button>
-  </StackLayout>
+  <Button *ngIf="isHome" row="6" rowspan="2" col="3" colspan="3" text="enter SignIn" (tap)="goSignUp()" class="icon base-color sub-background-color" textwrap="true"></Button>
+  <Button *ngIf="isHome" row="6" rowspan="2" col="7" colspan="3" text="enter SignUp" (tap)="goSignIn()" class="icon base-color sub-background-color" textwrap="true"></Button>
 
-  <StackLayout *ngIf="isSignUpForm" horizontalAlignment="center" verticalAlignment="center">
-    <TextField [(ngModel)]="user.name" hint="Name" keyboardType="text" autocorrect="false" autocapitalizationType="none"></TextField>
-    <TextField [(ngModel)]="user.email" hint="Email" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
-    <TextField [(ngModel)]="user.password" hint="Password" secure="true"></TextField>
-    <TextField [(ngModel)]="user.passwordConfirmation" hint="Confirm Password" secure="true"></TextField>
-    <Button text="&#xea13; Submit" (tap)="signUp()" class="icon base-color sub-background-color"></Button>
-    <Button text="&#xea13; Back" (tap)="backHome()" class="icon base-color sub-background-color"></Button>
-  </StackLayout>
-</StackLayout>
+  <TextField *ngIf="isSignInForm" row="5" col="3" colspan="7" [(ngModel)]="user.email" hint="Email" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
+  <TextField *ngIf="isSignInForm" row="6" col="3" colspan="7" [(ngModel)]="user.password" hint="Password" secure="true"></TextField>
+  <Button *ngIf="isSignInForm" row="7" col="3" colspan="3" text="Submit" (tap)="signIn()" class="icon base-color blue-background"></Button>
+  <Button *ngIf="isSignInForm" row="7" col="7" colspan="3" text="Back" (tap)="backHome()" class="icon base-color grey-background"></Button>
+
+  <TextField *ngIf="isSignUpForm" row="4" col="3" colspan="7" [(ngModel)]="user.name" hint="Name" keyboardType="text" autocorrect="false" autocapitalizationType="none"></TextField>
+  <TextField *ngIf="isSignUpForm" row="5" col="3" colspan="7" [(ngModel)]="user.email" hint="Email" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
+  <TextField *ngIf="isSignUpForm" row="6" col="3" colspan="7" [(ngModel)]="user.password" hint="Password" secure="true"></TextField>
+  <TextField *ngIf="isSignUpForm" row="7" col="3" colspan="7" [(ngModel)]="user.passwordConfirmation" hint="Confirm Password" secure="true"></TextField>
+  <Button *ngIf="isSignUpForm" row="8" col="3" colspan="3" text="Submit" (tap)="signUp()" class="icon base-color blue-background"></Button>
+  <Button *ngIf="isSignUpForm" row="8" col="7" colspan="3" text="Back" (tap)="backHome()" class="icon base-color grey-background"></Button>
+
+</GridLayout>
 
 <GridLayout *ngIf="isLogined"
-            class="main-container logined main-background-color"
+            class="main-container logined"
             row="0"
             colSpan="3"
             columns="*,*,*,*,*,*,*,*,*,*,*,*,*"
             rows="*,*,*,*,*,*,*,*,*,*,*,*,*"
+            [gradient]="'#A1FFCE'"
+            [endColor]="'#FAFFD1'"
             toggleNavButton>
   <Button (tap)="goTest()"
           text="&#xe9ba;"

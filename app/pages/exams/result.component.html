@@ -1,4 +1,4 @@
-<GridLayout class="main-container" colSpan="3" row="0" columns="auto,*" rows="auto,auto,auto,*">
+<GridLayout class="main-container" colSpan="3" row="0" rowspan="2" columns="auto,*" rows="auto,auto,*,auto" [gradient]="'#A1FFCE'" [endColor]="'#FAFFD1'">
 
   <Label text="&#xe9b8;" class="icon score" col="0" row="0"></Label>
   <Label [text]="score() + ' / 10'" class="score" col="1" row="0"></Label>
@@ -6,30 +6,30 @@
   <Label text="&#xe950;" class="icon time" col="0" row="1"></Label>
   <Label [text]="exam.resultTime | formatMMSSSS" class="time" col="1" row="1"></Label>
 
-  <Label text="&#xe9bb;" class="icon list" col="0" row="2"></Label>
-  <ListView [items]="exam.markedTopics" col="1" row="2" rowspan="2" class="list-group">
+  <Label text="&#xe9bb;" class="icon list" col="0" row="2" verticalAlignment="top"></Label>
+  <ListView [items]="exam.markedTopics" (itemLoading)="onItemLoading($event)" col="1" row="2" class="list-group">
     <template let-topic="item" let-indexOfTopic="index">
       <GridLayout class="list-group-item">
         <GridLayout *ngIf="topic.volatileJson.correct" columns="auto,*,auto" rows="*,*,*" class="correct">
           <Label text="&#xe9eb;" class="icon green" row="0"></Label>
           <Label [text]="'No.' + ( indexOfTopic + 1 )" row="0" col="3"></Label>
 
-          <Label [text]="topic.sample" row="1" col="1" colspan="2" textWrap="true"></Label>
-          <Label [text]="topic.description" row="2" col="1" colspan="2" textWrap="true"></Label>
+          <Label [text]="topic.sample" row="1" col="1" colspan="2" class="sentence" textWrap="true"></Label>
+          <Label [text]="topic.description" row="2" col="1" colspan="2" class="description" textWrap="true"></Label>
         </GridLayout>
         <GridLayout *ngIf="!topic.volatileJson.correct" columns="auto,*,auto" rows="*,*,*" class="wrong">
           <Label text="&#xe9fb;" class="icon red" row="0" col="0"></Label>
           <Label [text]="'No.' + ( indexOfTopic + 1 )" row="0" col="3"></Label>
 
-          <Label [text]="topic.sample" row="1" col="1" colspan="2" textWrap="true"></Label>
-          <Label [text]="topic.description" row="2" col="1" colspan="2" textWrap="true"></Label>
+          <Label [text]="topic.sample" row="1" col="1" colspan="2" class="sentence" textWrap="true"></Label>
+          <Label [text]="topic.description" row="2" col="1" colspan="2" class="description" textWrap="true"></Label>
         </GridLayout>
       </GridLayout>
     </template>
   </ListView>
 
+  <Button (tap)="backHome()" colSpan="2" row="3" text="Back" class="back sub-background-color base-color"></Button>
 </GridLayout>
-<Button (tap)="backHome()" colSpan="3" row="2" text="Back" class="sub-background-color base-color"></Button>
 
 <ActivityIndicator class="main-container"
                    colSpan="3"

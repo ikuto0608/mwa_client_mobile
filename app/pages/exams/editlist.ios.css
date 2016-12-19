@@ -5,6 +5,8 @@ Label.new {
 
 ListView.list-group {
   height: 92%;
+  margin: 5 20 5 5;
+  background-color: transparent;
 }
 
 GridLayout.list-group-item {

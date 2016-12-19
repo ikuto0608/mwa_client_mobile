@@ -3,10 +3,13 @@ import { Router } from '@angular/router';
 import { View } from "ui/core/view";
 import { SwipeGestureEventData, SwipeDirection } from "ui/gestures";
 import {AnimationCurve} from "ui/enums";
+import { ItemEventData } from 'ui/list-view';
 
 import { User } from '../../shared/models/user';
 import { Exam } from '../../shared/models/exam';
 import { UserService } from '../../shared/services/user.service';
+
+declare var UIColor: any;
 
 @Component({
   selector: 'user-profile',
@@ -18,17 +21,17 @@ import { UserService } from '../../shared/services/user.service';
       state('active', style({ transform: 'translateX(0)', opacity: 1 })),
       state('inactive', style({ transform: 'translateX(0)', opacity: 0 })),
       transition('inactive => active', [
-        animate(300, keyframes([
+        animate(400, keyframes([
           style({ opacity: 0, transform: 'translateX(-1000)', offset: 0 }),
           style({ opacity: 0.5, transform: 'translateX(-300)', offset: 0.9 }),
           style({ opacity: 1, transform: 'translateX(0)', offset: 1 })
         ]))
       ]),
       transition('active => inactive', [
-        animate(10, keyframes([
+        animate(200, keyframes([
           style({ opacity: 1, transform: 'translateX(0)', offset: 0 }),
-          style({ opacity: 0.5, transform: 'translateX(300)', offset: 0.9 }),
-          style({ opacity: 0, transform: 'translateX(1000)', offset: 1 })
+          style({ opacity: 0.5, transform: 'translateX(-300)', offset: 0.9 }),
+          style({ opacity: 0, transform: 'translateX(-1000)', offset: 1 })
         ]))
       ])
     ]),
@@ -43,10 +46,10 @@ import { UserService } from '../../shared/services/user.service';
         ]))
       ]),
       transition('active => inactive', [
-        animate(10, keyframes([
+        animate(200, keyframes([
           style({ opacity: 1, transform: 'translateX(0)', offset: 0 }),
-          style({ opacity: 0.5, transform: 'translateX(-300)', offset: 0.9 }),
-          style({ opacity: 0, transform: 'translateX(-1000)', offset: 1 })
+          style({ opacity: 0.5, transform: 'translateX(300)', offset: 0.9 }),
+          style({ opacity: 0, transform: 'translateX(1000)', offset: 1 })
         ]))
       ])
     ]),
@@ -155,6 +158,12 @@ export class UsersProfileComponent implements OnInit, AfterViewInit {
     for (let i = array.length; i; i--) {
       let j = Math.floor(Math.random() * i);
       [array[i - 1], array[j]] = [array[j], array[i - 1]];
+    }
+  }
+
+  onItemLoading(args: ItemEventData) {
+    if (args.ios) {
+      args.ios.backgroundColor = UIColor.clearColor();
     }
   }
 }

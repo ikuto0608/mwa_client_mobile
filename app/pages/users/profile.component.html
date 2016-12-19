@@ -1,4 +1,4 @@
-<StackLayout class="main-container" colSpan="3" row="0">
+<StackLayout class="main-container" colSpan="3" row="0" [gradient]="'#A1FFCE'" [endColor]="'#FAFFD1'">
   <GridLayout columns="*,*,*" rows="auto,auto,*">
     <GridLayout *ngIf="user" col="0" colspan="3" row="0" columns="*" rows="auto,auto" class="header">
       <Label row="0" class="image"></Label>
@@ -39,7 +39,7 @@
         <Label col="1" text="Record Time" class="record-time"></Label>
         <Label col="2" text="Date" class="record-date"></Label>
       </GridLayout>
-      <ListView row="1" (swipe)="showHistoryList($event)" [items]="latestRecords" class="list-group history-list">
+      <ListView (itemLoading)="onItemLoading($event)" row="1" (swipe)="showHistoryList($event)" [items]="latestRecords" class="list-group history-list">
         <template let-record="item">
           <GridLayout columns="auto,auto,auto" class="list-group-item">
             <Label col="0" [text]="record.score" class="score"></Label>

@@ -46,6 +46,11 @@ GridLayout.history-title, ListView.history-list {
   padding: 0;
 }
 
+ListView.history-list {
+  background-color: transparent;
+  margin: 0 20 0 5;
+}
+
 GridLayout.history-title Label.score,  ListView.history-list Label.score {
   width: 10%;
 }
