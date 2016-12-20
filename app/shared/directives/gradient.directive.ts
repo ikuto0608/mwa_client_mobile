@@ -13,11 +13,8 @@ declare var interop: any;
   selector: '[gradient]'
 })
 export class GradientDirective implements OnInit, OnDestroy, AfterViewInit {
-  @Input('gradient')
-  start: string;
-
-  @Input('endColor')
-  end: string;
+  @Input('gradient') start: string;
+  @Input('endColor') end: string;
 
   private loadedEventFn: () => void;
 

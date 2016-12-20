@@ -1,13 +1,13 @@
 {
     "private": false,
     "nativescript": {
-        "id": "org.nativescript.helloworldng"
+        "id": "org.ikuto.mwa"
     },
     "name": "tns-template-hello-world-ng",
     "main": "main.js",
     "version": "2.4.1",
-    "author": "Telerik <support@telerik.com>",
-    "description": "Nativescript Angular Hello World template",
+    "author": "Ikuto Yata <ikuto0608@me.com>",
+    "description": "Memorise Word Application",
     "license": "BSD",
     "keywords": [
         "telerik",
