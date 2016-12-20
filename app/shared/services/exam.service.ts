@@ -11,6 +11,7 @@ import { Config } from '../config';
 @Injectable()
 export class ExamService {
   private examsUrl = Config.apiUrl + 'exams/';
+  private ranksUrl = Config.apiUrl + 'ranks/';
   public resultExam: Exam;
 
   constructor(public http: Http) {
@@ -123,6 +124,17 @@ export class ExamService {
     return this.http
                .post(this.examsUrl + 'result', body, options)
                .map((res:Response) => res.json());
+  }
+
+  getRanks(id: number): Observable<any> {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let authToken = appSettings.getString('auth_token');
+    headers.append('Authorization', `Bearer ${authToken}`);
+
+    return this.http.get(this.ranksUrl + 'find_by_exam/' + id, { headers })
+               .map((res) => res.json())
+               .catch(err => this.handleErrors(err));
   }
 
   handleErrors(error: Response) {

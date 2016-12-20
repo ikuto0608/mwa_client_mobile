@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Page } from "ui/page";
 import { ItemEventData } from 'ui/list-view';
 
@@ -25,14 +25,16 @@ export class ExamsRankComponent implements OnInit {
 
   constructor(public router: Router,
               public examService: ExamService,
-              private page: Page) {}
+              private page: Page,
+              private route: ActivatedRoute) {}
 
   ngOnInit() {
+    let id = +this.route.snapshot.params['id'];
     this.isLoading = true;
     this.page.actionBarHidden = true;
 
     this.examService
-        .all()
+        .getRanks(id)
         .subscribe(
           (data) => this.ranks = data,
           (err) => console.log(err),

@@ -6,6 +6,7 @@
             (tap)="chooseAnswer(indexOfAnswer)"
             [col]="setColumn(indexOfAnswer)"
             [row]="setRow(indexOfAnswer)"
+            textwrap="true"
             class="sub-background-color base-color answer">
     </Button>
     <Label [text]="exam.questions[questionIndex].description" col="0" row="5" colSpan="2" class="description" textWrap="true"></Label>
