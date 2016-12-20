@@ -87,8 +87,8 @@ export class ExamsIndexComponent implements OnInit, AfterViewInit {
     this.searchTerms.next(term);
   }
 
-  editExam(id: number) {
-    this.router.navigate(['exams-edit/' + id]);
+  showRank(id: number) {
+    this.router.navigate(['exams-rank/' + id]);
   }
 
   onItemLoading(args: ItemEventData) {

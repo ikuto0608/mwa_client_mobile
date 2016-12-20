@@ -15,6 +15,7 @@ export class AppComponent {
   public EXAM_EDIT = "/exams-edit";
   public EXAM_TAKE = "/exams-take";
   public EXAM_RESULT = "/exams-result";
+  public EXAM_RANK = "/exams-rank";
   public PROFILE = "/user-profile";
 
   constructor(public router: Router, public page: Page) {

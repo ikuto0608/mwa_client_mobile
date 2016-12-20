@@ -1,0 +1,19 @@
+ListView.list-group {
+  background-color: transparent;
+}
+
+ListView.list-group {
+  height: 100%;
+}
+
+GridLayout Label {
+  margin: 10 5;
+}
+
+.title {
+  font-size: 12;
+}
+
+.value {
+  font-size: 16;
+}

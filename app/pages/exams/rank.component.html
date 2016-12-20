@@ -1,0 +1,28 @@
+<StackLayout class="main-container" colSpan="3" row="0" [gradient]="'#C9FFBF'" [endColor]="'#FFAFBD'">
+
+  <GridLayout row="0" columns="*,*,*,*,*" rows="auto" class="header base-background-color">
+    <Label (tap)="goExamList()" col="0" text="&#xea40;" horizontalAlignment="left" class="icon back sub-color"></Label>
+  </GridLayout>
+
+  <GridLayout columns="*6,*47,*47" rows="auto">
+    <Label col="1" text="Number of perfects in a low" class="title" textwrap="true" horizontalAlignment="center"></Label>
+    <Label col="2" text="Average time of perfects" class="title" textwrap="true" horizontalAlignment="center"></Label>
+  </GridLayout>
+  <ListView *ngIf="ranks" (itemLoading)="onItemLoading($event)" [items]="ranks" class="list-group">
+    <template let-rank="item" let-index="index">
+      <GridLayout columns="*6,*22,*24,*24,*24" class="list-group-item">
+        <Label col="0" [text]="index + 1" class="title" horizontalAlignment="center"></Label>
+        <Label col="1" text="14" class="value" textwrap="true" horizontalAlignment="center"></Label>
+        <Label col="2" text="name" class="value" textwrap="true" horizontalAlignment="center"></Label>
+        <Label col="3" text="00:10:000" class="value" textwrap="true" horizontalAlignment="center"></Label>
+        <Label col="4" text="nemw" class="value" textwrap="true" horizontalAlignment="center"></Label>
+      </GridLayout>
+    </template>
+  </ListView>
+</StackLayout>
+
+<ActivityIndicator class="main-container main-background-color"
+                   colSpan="3"
+                   row="1"
+                   [busy]="isLoading"
+                   [visibility]="isLoading ? 'visible' : 'collapse'"></ActivityIndicator>

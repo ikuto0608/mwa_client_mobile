@@ -5,6 +5,7 @@ import { ExamsResultComponent } from './pages/exams/result.component';
 import { ExamsEditListComponent } from './pages/exams/editList.component';
 import { ExamsCreateComponent } from './pages/exams/create.component';
 import { ExamsEditComponent } from './pages/exams/edit.component';
+import { ExamsRankComponent } from './pages/exams/rank.component';
 import { UsersProfileComponent } from './pages/users/profile.component';
 import { StopwatchComponent } from './pages/stopwatch.component';
 
@@ -16,6 +17,7 @@ export const routes = [
   { path: 'exams-edit-list', component: ExamsEditListComponent },
   { path: 'exams-create', component: ExamsCreateComponent },
   { path: 'exams-edit/:id', component: ExamsEditComponent },
+  { path: 'exams-rank/:id', component: ExamsRankComponent },
   { path: 'user-profile', component: UsersProfileComponent },
 ];
 
@@ -27,6 +29,7 @@ export const navigatableComponents = [
   ExamsEditListComponent,
   ExamsCreateComponent,
   ExamsEditComponent,
+  ExamsRankComponent,
   UsersProfileComponent,
   StopwatchComponent,
 ];
