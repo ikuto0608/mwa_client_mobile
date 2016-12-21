@@ -13,14 +13,24 @@ Button.answer {
   margin: 1% 2% 1% 2%;
 }
 
-Label.description {
+StackLayout.stopwatch {
+  font-size: 30%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+Label.hint {
   font-size: 20%;
   vertical-align: middle;
   margin: 4%;
 }
 
-StackLayout.stopwatch {
-  font-size: 30%;
-  text-align: center;
-  vertical-align: middle;
+@keyframes animate {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+Label.hint {
+  animation-name: animate;
+  animation-duration: 10s;
 }

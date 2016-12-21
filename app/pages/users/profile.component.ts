@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, trigger, style
 import { Router } from '@angular/router';
 import { View } from "ui/core/view";
 import { SwipeGestureEventData, SwipeDirection } from "ui/gestures";
-import {AnimationCurve} from "ui/enums";
+import { AnimationCurve } from "ui/enums";
 import { ItemEventData } from 'ui/list-view';
 
 import { User } from '../../shared/models/user';

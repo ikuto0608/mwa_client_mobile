@@ -9,7 +9,7 @@
             textwrap="true"
             class="sub-background-color base-color answer">
     </Button>
-    <Label [text]="exam.questions[questionIndex].description" col="0" row="5" colSpan="2" class="description" textWrap="true"></Label>
+    <Label #hint [text]="exam.questions[questionIndex].description" col="0" row="5" colSpan="2" class="hint" textWrap="true"></Label>
     <StackLayout col="0" row="6" colSpan="2" class="stopwatch blue">
       <Progress maxValue="100" #progress class="m-20 blue"></Progress>
       <stopwatch #stopwatchComponent></stopwatch>

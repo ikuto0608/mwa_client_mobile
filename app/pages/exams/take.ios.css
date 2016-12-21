@@ -14,7 +14,7 @@ Button.answer {
   margin: 1% 2% 1% 2%;
 }
 
-Label.description {
+Label.hint {
   font-size: 15%;
   vertical-align: middle;
   margin: 4%;

@@ -4,6 +4,7 @@ import { Observable } from "rxjs/Rx";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/map";
 import { Page } from "ui/page";
+import { AnimationCurve } from "ui/enums";
 
 import { Exam } from '../../shared/models/exam';
 import { Question } from '../../shared/models/question';
@@ -18,6 +19,7 @@ import { ExamService } from '../../shared/services/exam.service';
 export class ExamsTakeComponent implements OnInit, AfterViewInit {
   @ViewChild('stopwatchComponent') stopwatchComponent: any;
   @ViewChild("progress") progress: ElementRef;
+  @ViewChild("hint") hint: ElementRef;
 
   public exam: Exam;
   public resultExam: Exam;
@@ -45,6 +47,7 @@ export class ExamsTakeComponent implements OnInit, AfterViewInit {
   }
 
   chooseAnswer(answerIndex) {
+    this.resetHintAnimation();
     this.progressUp();
     this.exam.resultArray = this.exam.resultArray || new Array<Object>();
     this.exam.resultArray.push(
@@ -83,5 +86,14 @@ export class ExamsTakeComponent implements OnInit, AfterViewInit {
 
   setRow(indexOfAnswer: number) {
     return (indexOfAnswer < 2) ? 3 : 4;
+  }
+
+  resetHintAnimation() {
+    this.hint.nativeElement.opacity = 0;
+    this.hint.nativeElement.animate({
+      opacity: 1,
+      duration: 5000,
+      curve: AnimationCurve.easeIn,
+    });
   }
 }
