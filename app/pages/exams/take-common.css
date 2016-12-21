@@ -23,6 +23,7 @@ Label.hint {
   font-size: 20%;
   vertical-align: middle;
   margin: 4%;
+  opacity: 0;
 }
 
 @keyframes animate {
@@ -30,7 +31,12 @@ Label.hint {
   to { opacity: 1; }
 }
 
-Label.hint {
+Label.delayAnimation {
+  animation-name: animate;
+  animation-duration: 10s;
+}
+
+Label.delayAnimationDuplicate {
   animation-name: animate;
   animation-duration: 10s;
 }

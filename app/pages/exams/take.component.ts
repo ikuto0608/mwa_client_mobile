@@ -25,6 +25,7 @@ export class ExamsTakeComponent implements OnInit, AfterViewInit {
   public resultExam: Exam;
   public questionIndex: number;
   public resultTime: number;
+  public isRestAnimation: boolean;
 
   constructor(public examService: ExamService, private route: ActivatedRoute, private router: Router, private page: Page) {
     this.page.actionBarHidden = true;
@@ -41,6 +42,7 @@ export class ExamsTakeComponent implements OnInit, AfterViewInit {
         );
 
     this.questionIndex = 0;
+    this.isRestAnimation = false;
   }
 
   ngAfterViewInit() {
@@ -89,11 +91,15 @@ export class ExamsTakeComponent implements OnInit, AfterViewInit {
   }
 
   resetHintAnimation() {
+    this.isRestAnimation = !this.isRestAnimation;
+    /*
     this.hint.nativeElement.opacity = 0;
     this.hint.nativeElement.animate({
       opacity: 1,
       duration: 5000,
       curve: AnimationCurve.easeIn,
+      cancel: console.log(this.hint.nativeElement.opacity)
     });
+    */
   }
 }
