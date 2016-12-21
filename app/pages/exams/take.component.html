@@ -1,6 +1,6 @@
-<StackLayout class="main-container" colSpan="3" row="0" rowspan="2" [gradient]="'#C9FFBF'" [endColor]="'#FFAFBD'">
+<StackLayout class="main-container" colSpan="3" row="0" rowspan="2" [gradient]="'#6BF9E0'" [endColor]="'#B6EAE1'">
   <GridLayout *ngIf="exam" columns="*,*" rows="*,*,*,*,*,*,*" toggleNavButton>
-    <Label [text]="exam.questions[questionIndex].sentence" col="0" row="0" colSpan="2" rowSpan="3" class="question" textWrap="true"></Label>
+    <Label [text]="exam.questions[questionIndex].sentence" col="0" row="0" colSpan="2" rowSpan="3" class="question" textWrap="true" verticalAlignment="center"></Label>
     <Button *ngFor="let answer of exam.questions[questionIndex].answers; let indexOfAnswer = index;"
             [text]="answer.join(' ')"
             (tap)="chooseAnswer(indexOfAnswer)"
