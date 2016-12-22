@@ -43,17 +43,17 @@ export class ExamsCreateComponent implements OnInit {
   }
 
   setAnswer(indexOfWord: number) {
-    var index = this.exam.topics[this.indexOfTopic].indexArrayOfAnswer.indexOf(indexOfWord)
+    var index = this.exam.topics[this.indexOfTopic].indexOfAnswerArray.indexOf(indexOfWord)
     if (index < 0) {
-      this.exam.topics[this.indexOfTopic].indexArrayOfAnswer.push(indexOfWord)
-      this.exam.topics[this.indexOfTopic].indexArrayOfAnswer.sort()
+      this.exam.topics[this.indexOfTopic].indexOfAnswerArray.push(indexOfWord)
+      this.exam.topics[this.indexOfTopic].indexOfAnswerArray.sort()
     } else {
-      this.exam.topics[this.indexOfTopic].indexArrayOfAnswer.splice(index, 1)
+      this.exam.topics[this.indexOfTopic].indexOfAnswerArray.splice(index, 1)
     }
   }
 
   isAnswerSelected(indexOfWord: number) {
-    return this.exam.topics[this.indexOfTopic].indexArrayOfAnswer.indexOf(indexOfWord) != -1
+    return this.exam.topics[this.indexOfTopic].indexOfAnswerArray.indexOf(indexOfWord) != -1
   }
 
   deleteTopic(indexOfTopic: number) {
@@ -66,6 +66,12 @@ export class ExamsCreateComponent implements OnInit {
   }
 
   createExam() {
+    if (this.exam.topics.length < 10) {
+      dialog.alert("You need more than 10 Questions to create it!");
+      return;
+    }
+
+
     let options = {
         title: "Confirm",
         message: "Created!",
@@ -130,5 +136,28 @@ export class ExamsCreateComponent implements OnInit {
     if (this.exam.numberOfAnswer > 1) {
       this.exam.numberOfAnswer -= 1;
     }
+  }
+
+  suggestAnswerChoice(indexOfTopic: number) {
+    let left: number = this.exam.numberOfAnswer - this.exam.topics[indexOfTopic].indexOfAnswerArray.length
+    if (left > 0) {
+      return "Choose " + left + " answer!";
+    }
+    if (left == 0) {
+      return "Choice completed!";
+    }
+    if (left < 0) {
+      return "It can't be ansewer more than " + this.exam.numberOfAnswer + "!";
+    }
+  }
+
+  isValidTopic(indexOfTopic: number): boolean {
+    if (this.exam.numberOfAnswer != this.exam.topics[indexOfTopic].indexOfAnswerArray.length) {
+      return false;
+    }
+    if (!this.exam.topics[indexOfTopic].question) {
+      return false;
+    }
+    return true;
   }
 }

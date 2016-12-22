@@ -22,6 +22,8 @@ declare var UIColor: any;
 export class ExamsRankComponent implements OnInit {
   public ranks: any;
   public isLoading = false;
+  public numberOfPerfectRank: Array<any>;
+  public timeOfPerfectRank: Array<any>;
 
   constructor(public router: Router,
               public examService: ExamService,
@@ -36,10 +38,23 @@ export class ExamsRankComponent implements OnInit {
     this.examService
         .getRanks(id)
         .subscribe(
-          (data) => this.ranks = data,
+          (data) => this.arrangementRankByOrder(data),
           (err) => console.log(err),
           () => console.log('done')
         )
+  }
+
+  arrangementRankByOrder(rankJson: any) {
+    this.numberOfPerfectRank = rankJson.map((r) => {
+      return { user_name: r.user_name, times: r.number_of_perfect_in_a_row };
+    });
+
+    rankJson.sort((a, b) => {
+      return b - a;
+    });
+    this.timeOfPerfectRank = rankJson.map((r) => {
+      return { user_name: r.user_name, time: r.average_perfect_record_time };
+    });
   }
 
   goExamList() {

@@ -3,14 +3,14 @@ export class Topic {
   public question: string
   public description: string
   public questionArray: Array<string>
-  public indexArrayOfAnswer: Array<number>
+  public indexOfAnswerArray: Array<number>
   public userId: number
   public examId: number
   public volatileJson: {answer: '', correct: ''}
 
   constructor() {
     this.questionArray = new Array<string>()
-    this.indexArrayOfAnswer = new Array<number>()
+    this.indexOfAnswerArray = new Array<number>()
   }
 
   get sample() {
@@ -19,7 +19,7 @@ export class Topic {
       return q
     })
 
-    this.indexArrayOfAnswer.forEach((index) => {
+    this.indexOfAnswerArray.forEach((index) => {
       questionArray[index] = "( " + questionArray[index] + " )"
     })
 
@@ -31,7 +31,7 @@ export class Topic {
 
     let i: number = 0
     questionArray = this.questionArray.map((q, index) => {
-      this.indexArrayOfAnswer.forEach((indexOfAnswer) => {
+      this.indexOfAnswerArray.forEach((indexOfAnswer) => {
           if (indexOfAnswer == index) {
             if (!this.volatileJson.correct) {
               q = this.volatileJson.answer[i]
@@ -40,7 +40,7 @@ export class Topic {
           }
       })
       // error TS2339: Property 'includes' does not exist on type 'number[]'.
-      //if(this.indexArrayOfAnswer.includes(index)) {
+      //if(this.indexOfAnswerArray.includes(index)) {
       //  if (!this.volatileJson.correct) {
       //    q = this.volatileJson.answer[i]
       //    i += 1
@@ -49,7 +49,7 @@ export class Topic {
       return q
     })
 
-    this.indexArrayOfAnswer.forEach((index) => {
+    this.indexOfAnswerArray.forEach((index) => {
       questionArray[index] = "( " + questionArray[index] + " )"
     })
 
@@ -57,12 +57,12 @@ export class Topic {
   }
 
   toJson(): any {
-    return JSON.stringify({exam: { id: this.id, question: this.question, description: this.description, question_array: this.questionArray, index_array_of_answer: this.indexArrayOfAnswer, user_id: this.userId, exam_id: this.examId }})
+    return JSON.stringify({exam: { id: this.id, question: this.question, description: this.description, question_array: this.questionArray, index_array_of_answer: this.indexOfAnswerArray, user_id: this.userId, exam_id: this.examId }})
   }
 
   static toTopic(json: any): Topic {
     let topic = new Topic()
-    topic.indexArrayOfAnswer = json.index_array_of_answer
+    topic.indexOfAnswerArray = json.index_array_of_answer
     topic.questionArray =  json.question_array
     return (<any>Object).assign(topic, json)
   }

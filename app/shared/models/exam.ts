@@ -32,7 +32,7 @@ export class Exam {
                       question: topic.question,
                       description: topic.description,
                       question_array: topic.questionArray,
-                      index_array_of_answer: topic.indexArrayOfAnswer
+                      index_array_of_answer: topic.indexOfAnswerArray
                     });
       });
     }

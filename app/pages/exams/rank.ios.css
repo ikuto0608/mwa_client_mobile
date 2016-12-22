@@ -1,5 +1,6 @@
 ListView.list-group {
   background-color: transparent;
+  margin: 0 20 0 5;
 }
 
 ListView.list-group {
@@ -15,5 +16,5 @@ GridLayout Label {
 }
 
 .value {
-  font-size: 16;
+  font-size: 14;
 }

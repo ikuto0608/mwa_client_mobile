@@ -23,14 +23,14 @@ Label.plus {
 Button.topic {
   margin: 7;
   padding: 10;
-  font-size: 13;
+  font-size: 15;
   width: 60;
   height: 60;
 }
 
 Button.add-topic {
   margin: 7;
-  font-size: 13;
+  font-size: 11;
   width: 60;
   height: 60;
 }

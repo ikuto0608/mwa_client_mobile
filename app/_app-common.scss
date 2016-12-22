@@ -11,6 +11,10 @@
 // Place any CSS rules you want to apply on both iOS and Android here.
 // This is where the vast majority of your CSS code goes.
 
+* {
+  font-family: 'PTC55F';
+}
+
 .icon {
   font-family: 'IcoMoon-Free';
 }
@@ -80,10 +84,10 @@ GridLayout.footer-container Label.icon {
   background-color: #BDC0BA;
 }
 
-.blue-background {
-  background-color: #58B2DC;
-}
-
 .red-background {
   background-color: #E87A90;
+}
+
+.blue-background {
+  background-color: #58B2DC;
 }
