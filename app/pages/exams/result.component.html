@@ -20,7 +20,6 @@
         <GridLayout *ngIf="!topic.volatileJson.correct" columns="auto,*,auto" rows="*,*,*" class="wrong">
           <Label text="&#xe9fb;" class="icon red" row="0" col="0"></Label>
           <Label [text]="'No.' + ( indexOfTopic + 1 )" row="0" col="3"></Label>
-
           <Label [text]="topic.sample" row="1" col="1" colspan="2" class="sentence" textWrap="true"></Label>
           <Label [text]="topic.description" row="2" col="1" colspan="2" class="description" textWrap="true"></Label>
         </GridLayout>

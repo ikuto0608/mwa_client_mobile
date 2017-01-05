@@ -1,3 +1,3 @@
 export class Config {
-  static apiUrl = "http://10.112.28.61:3000/";
+  static apiUrl = "http://207.194.226.124:3000/";
 }

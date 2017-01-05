@@ -2,7 +2,7 @@
 <!--  <GridLayout columns="*" rows="*92,*8" [gradient]="'#6BF9E0'" [endColor]="'#B6EAE1'"> -->
   <router-outlet></router-outlet>
 
-  <GridLayout *ngIf="!router.url.includes(EXAM_TAKE) && !router.url.includes(EXAM_RESULT)" class="footer-container base-background-color" row="1" colSpan="3" columns="*,*,*,*" rows="*" toggleNavButton>
+  <GridLayout *ngIf="!(router.url == HOME) && !router.url.includes(EXAM_TAKE) && !router.url.includes(EXAM_RESULT)" class="footer-container base-background-color" row="1" colSpan="3" columns="*,*,*,*" rows="*" toggleNavButton>
     <Label (tap)="goHome()"
             text="&#xe900;"
             col="0"
