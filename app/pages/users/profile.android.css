@@ -7,6 +7,7 @@ Label {
   vertical-align: middle;
 }
 
+/*
 Label.image {
   background-image: url("res://logo");
   background-repeat: no-repeat;
@@ -16,6 +17,16 @@ Label.image {
   width: 31%;
   border-radius: 100%;
   margin: 50 0 30 0;
+}
+*/
+
+Label.image {
+  border-radius: 75;
+  width: 150;
+  text-align: center;
+  font-size: 40;
+  padding: 50;
+  margin: 60 0 40 0;
 }
 
 Label.name {

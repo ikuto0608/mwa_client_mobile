@@ -1,5 +1,6 @@
-<StackLayout class="main-container" colSpan="3" row="0" [gradient]="'#6BF9E0'" [endColor]="'#B6EAE1'">
+<!-- <StackLayout class="main-container" colSpan="3" row="0" [gradient]="'#6BF9E0'" [endColor]="'#B6EAE1'"> -->
 
+<StackLayout class="main-container" colSpan="3" row="0">
   <GridLayout row="0" columns="*,*,*,*,*" rows="auto" class="header base-background-color">
     <Label (tap)="goExamList()" col="0" text="&#xea40;" horizontalAlignment="left" class="icon back sub-color"></Label>
   </GridLayout>
@@ -11,7 +12,7 @@
   <ListView *ngIf="timeOfPerfectRank" (itemLoading)="onItemLoading($event)" [items]="timeOfPerfectRank" class="list-group">
     <template let-rank="item" let-index="index">
       <GridLayout columns="*6,*18,*26,*24,*26" class="list-group-item">
-        <Label col="0" [text]="index + 1" class="title" horizontalAlignment="center"></Label>
+        <Label col="0" [text]="index + 1" class="rank sub-background-color base-color" horizontalAlignment="center"></Label>
         <Label col="1" [text]="numberOfPerfectRank[index].times" class="value" textwrap="true" horizontalAlignment="center"></Label>
         <Label col="2" [text]="numberOfPerfectRank[index].user_name" class="value" textwrap="true" horizontalAlignment="center"></Label>
         <Label col="3" [text]="rank.time | formatMMSSSS" class="value" textwrap="true" horizontalAlignment="center"></Label>

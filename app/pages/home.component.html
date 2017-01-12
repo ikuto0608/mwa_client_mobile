@@ -1,11 +1,17 @@
-<GridLayout *ngIf="!isLogined"
+<!-- <GridLayout *ngIf="!isLogined"
              colSpan="3"
              rowspan="2"
              columns="*,*,*,*,*,*,*,*,*,*,*,*,*"
              rows="*,*,*,*,*,*,*,*,*,*,*,*,*"
              class="main-container come-across"
-             [gradient]="'#6BF9E0'" [endColor]="'#B6EAE1'">
+             [gradient]="'#6BF9E0'" [endColor]="'#B6EAE1'"> -->
 
+<GridLayout *ngIf="!isLogined"
+            colSpan="3"
+            rowspan="2"
+            columns="*,*,*,*,*,*,*,*,*,*,*,*,*"
+            rows="*,*,*,*,*,*,*,*,*,*,*,*,*"
+            class="main-container come-across">
   <Button *ngIf="isHome" row="6" rowspan="2" col="3" colspan="3" text="enter SignIn" (tap)="goSignUp()" class="icon base-color sub-background-color" textwrap="true"></Button>
   <Button *ngIf="isHome" row="6" rowspan="2" col="7" colspan="3" text="enter SignUp" (tap)="goSignIn()" class="icon base-color sub-background-color" textwrap="true"></Button>
 
@@ -23,13 +29,21 @@
 
 </GridLayout>
 
-<GridLayout *ngIf="isLogined"
+<!-- <GridLayout *ngIf="isLogined"
             class="main-container logined"
             rowspan="2"
             colSpan="3"
             columns="*,*,*,*,*,*,*,*,*,*,*,*,*"
             rows="*,*,*,*,*,*,*,*,*,*,*,*,*"
             [gradient]="'#6BF9E0'" [endColor]="'#B6EAE1'"
+            toggleNavButton> -->
+
+<GridLayout *ngIf="isLogined"
+            class="main-container logined"
+            rowspan="2"
+            colSpan="3"
+            columns="*,*,*,*,*,*,*,*,*,*,*,*,*"
+            rows="*,*,*,*,*,*,*,*,*,*,*,*,*"
             toggleNavButton>
   <Button (tap)="goTest()"
           text="&#xe9ba;"
@@ -37,26 +51,26 @@
           row="3"
           colspan="4"
           rowspan="3"
-          class="icon base-color sub-background-color"></Button>
+          class="icon base-color blue-background"></Button>
   <Button (tap)="editTest()"
           text="&#xe907;"
           col="7"
           row="3"
           colspan="4"
           rowspan="3"
-          class="icon base-color sub-background-color"></Button>
+          class="icon base-color blue-background"></Button>
   <Button (tap)="goProfile()"
           text="&#xe971;"
           col="2"
           row="7"
           colspan="4"
           rowspan="3"
-          class="icon base-color sub-background-color"></Button>
+          class="icon base-color blue-background"></Button>
   <Button (tap)="logout()"
           text="&#xea14;"
           col="7"
           row="7"
           colspan="4"
           rowspan="3"
-          class="icon base-color sub-background-color"></Button>
+          class="icon base-color blue-background"></Button>
 </GridLayout>

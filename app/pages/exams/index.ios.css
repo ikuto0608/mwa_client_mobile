@@ -33,7 +33,7 @@ GridLayout.list-group-item Label.tag {
   padding: 2 0;
 }
 
-GridLayout.list-group-item Button.detail {
-  font-size: 9;
+GridLayout.list-group-item Button.rank {
+  font-size: 11;
   height: 25;
 }
