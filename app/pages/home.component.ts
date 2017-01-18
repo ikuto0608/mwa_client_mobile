@@ -56,8 +56,6 @@ export class HomeComponent implements OnInit {
   }
 
   signIn() {
-this.user.email = this.user.email || "hoge@hoge.com";
-this.user.password = this.user.password || "hogehoge";
     this.userService.login(this.user)
         .subscribe(
           () => {
