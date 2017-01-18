@@ -1,7 +1,9 @@
-<StackLayout class="main-container" colSpan="3" row="0" [gradient]="'#6BF9E0'" [endColor]="'#B6EAE1'">
+<!-- <StackLayout class="main-container" colSpan="3" row="0" [gradient]="'#6BF9E0'" [endColor]="'#B6EAE1'"> -->
+
+<StackLayout class="main-container" colSpan="3" row="0">
   <GridLayout columns="*,*,*" rows="auto,auto,*">
     <GridLayout *ngIf="user" col="0" colspan="3" row="0" columns="*" rows="auto,auto" class="header">
-      <Label row="0" class="image"></Label>
+      <Label row="0" [text]="user.name[0]" class="image sub-background-color base-color"></Label>
       <Label row="1" [text]="user.name" class="name blue"></Label>
     </GridLayout>
 

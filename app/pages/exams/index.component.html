@@ -1,4 +1,6 @@
-<StackLayout class="main-container" colSpan="3" row="0" [gradient]="'#6BF9E0'" [endColor]="'#B6EAE1'">
+<!-- <StackLayout class="main-container" colSpan="3" row="0" [gradient]="'#6BF9E0'" [endColor]="'#B6EAE1'"> -->
+
+<StackLayout class="main-container" colSpan="3" row="0">
   <SearchBar id="serach_bar" #searchBar hint="Search Tag..." (propertyChange)="search(searchBar.text)"></SearchBar>
   <ListView (itemLoading)="onItemLoading($event)" [items]="exams | async" class="list-group">
     <template let-item="item">
@@ -14,7 +16,7 @@
                 row="1"
                 (tap)="showRank(item.id)"
                 text="Rank"
-                class="detail sub-background-color base-color"></Button>
+                class="rank blue-background base-color"></Button>
       </GridLayout>
     </template>
   </ListView>

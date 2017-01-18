@@ -71,6 +71,12 @@ export class ExamsCreateComponent implements OnInit {
       return;
     }
 
+    this.exam.topics.forEach(topic => {
+      if (topic.indexOfAnswerArray.length != this.exam.numberOfAnswer) {
+        dialog.alert("You need to pick answer correclty for each topic!");
+        return;
+      }
+    })
 
     let options = {
         title: "Confirm",

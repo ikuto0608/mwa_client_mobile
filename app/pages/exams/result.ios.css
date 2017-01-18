@@ -13,7 +13,7 @@ Label.score.icon, Label.time.icon, Label.list.icon {
   margin: 0;
   padding: 30 0;
   text-align: center;
-  color: #FCFAF2;
+  color: white;
 }
 
 GridLayout.correct Label.icon, GridLayout.wrong Label.icon {
