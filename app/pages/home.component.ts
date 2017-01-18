@@ -62,18 +62,22 @@ export class HomeComponent implements OnInit {
             alert("Logined.");
             this.isLogined = true;
           },
-          () => alert("Login failed. Email or Password are wrong.")
+          err => alert(err.errors[0])
         )
   }
 
   signUp() {
+    if (!this.user.isValid()) {
+      return;
+    }
     this.userService.register(this.user)
         .subscribe(
           () => {
             alert("Account Created.");
             this.isLogined = true;
           },
-          () => alert("Unfortunately we were unable to create your account.")
+          (err) => {
+            alert("Unfortunately we were unable to create your account.")}
         )
   }
 

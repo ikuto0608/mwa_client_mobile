@@ -1,7 +1,7 @@
 {
-  "description": "NativeScript Application",
+  "description": "Memorize Word Application",
   "license": "SEE LICENSE IN <your-license-filename>",
-  "readme": "NativeScript Application",
+  "readme": "Memorize Word Application",
   "repository": "<fill-your-repository-here>",
   "nativescript": {
     "id": "org.ikuto.memorise",

@@ -35,7 +35,7 @@ export class UserService {
                    this.loggedIn = true;
                  }
                })
-               .catch(err => this.handleErrors(err));
+               .catch(err => this.handleErrors(err.json()));
   }
 
   logout() {
@@ -94,13 +94,12 @@ export class UserService {
                    appSettings.setString('auth_token', res.auth_token);
                    this.loggedIn = true;
                  }
-
-                 return res.success;
-               });
+               })
+               .catch(err => this.handleErrors(err.json()));
   }
 
-  handleErrors(error: Response) {
-    console.log(error.json());
-    return Observable.throw(error);
+  handleErrors(err) {
+    console.log(JSON.stringify(err));
+    return Observable.throw(err);
   }
 }
