@@ -12,8 +12,8 @@
             columns="*,*,*,*,*,*,*,*,*,*,*,*,*"
             rows="*,*,*,*,*,*,*,*,*,*,*,*,*"
             class="main-container come-across">
-  <Button *ngIf="isHome" row="6" rowspan="2" col="3" colspan="3" text="enter SignIn" (tap)="goSignUp()" class="icon base-color sub-background-color" textwrap="true"></Button>
-  <Button *ngIf="isHome" row="6" rowspan="2" col="7" colspan="3" text="enter SignUp" (tap)="goSignIn()" class="icon base-color sub-background-color" textwrap="true"></Button>
+  <Button *ngIf="isHome" row="6" rowspan="2" col="3" colspan="3" text="enter SignIn" (tap)="goSignUp()" class="icon base-color blue-background" textwrap="true"></Button>
+  <Button *ngIf="isHome" row="6" rowspan="2" col="7" colspan="3" text="enter SignUp" (tap)="goSignIn()" class="icon base-color blue-background" textwrap="true"></Button>
 
   <TextField *ngIf="isSignInForm" row="5" col="3" colspan="7" [(ngModel)]="user.email" hint="Email" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
   <TextField *ngIf="isSignInForm" row="6" col="3" colspan="7" [(ngModel)]="user.password" hint="Password" secure="true"></TextField>
