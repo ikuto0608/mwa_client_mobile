@@ -3,7 +3,7 @@
 <StackLayout class="main-container" colSpan="3" row="0">
   <GridLayout *ngIf="!editting" columns="*" rows="*7,*93">
     <GridLayout row="0" columns="*,*,*,*,*" rows="*" class="base-background-color">
-      <Label (tap)="backToList()" col="2" text="&#xe960;" horizontalAlignment="center" class="icon save sub-color"></Label>
+      <Label (tap)="updateExam()" col="2" text="&#xe960;" horizontalAlignment="center" class="icon save sub-color"></Label>
     </GridLayout>
 
     <StackLayout *ngIf="exam" row="1" class="form">
@@ -13,9 +13,9 @@
 
         <Label text="Tags:" textWrap="true"></Label>
         <GridLayout columns="*,*,*" rows="auto">
-          <TextField [(ngModel)]="exam.tags[0].name" class="input input-rounded" col="0" hint="Tag1"></TextField>
-          <TextField [(ngModel)]="exam.tags[1].name" class="input input-rounded" col="1" hint="Tag2"></TextField>
-          <TextField [(ngModel)]="exam.tags[2].name" class="input input-rounded" col="2" hint="Tag3"></TextField>
+          <TextField [(ngModel)]="tags[0]" col="0" class="input input-rounded" hint="Tag"></TextField>
+          <TextField [(ngModel)]="tags[1]" col="1" class="input input-rounded" hint="Tag"></TextField>
+          <TextField [(ngModel)]="tags[2]" col="2" class="input input-rounded" hint="Tag"></TextField>
         </GridLayout>
 
         <Label text="Description:" textWrap="true"></Label>

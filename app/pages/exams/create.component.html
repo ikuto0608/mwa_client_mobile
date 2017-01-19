@@ -13,9 +13,9 @@
 
         <Label text="Tags:" textWrap="true"></Label>
         <GridLayout columns="*,*,*" rows="auto">
-          <TextField [(ngModel)]="exam.tags[0].name" class="input input-rounded" col="0" hint="Tag1"></TextField>
-          <TextField [(ngModel)]="exam.tags[1].name" class="input input-rounded" col="1" hint="Tag2"></TextField>
-          <TextField [(ngModel)]="exam.tags[2].name" class="input input-rounded" col="2" hint="Tag3"></TextField>
+          <TextField [(ngModel)]="tags[0]" col="0" class="input input-rounded" hint="Tag"></TextField>
+          <TextField [(ngModel)]="tags[1]" col="1" class="input input-rounded" hint="Tag"></TextField>
+          <TextField [(ngModel)]="tags[2]" col="2" class="input input-rounded" hint="Tag"></TextField>
         </GridLayout>
 
         <Label text="Description:" textWrap="true"></Label>
