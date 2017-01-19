@@ -13,10 +13,11 @@
                [col]="indexOfTag + 1"
                row="2"></Label>
         <Button col="5"
-                row="1"
+                rowspan="3"
                 (tap)="showRank(item.id)"
                 text="Rank"
-                class="rank blue-background base-color"></Button>
+                class="rank blue-background base-color"
+                verticalAlignment="center"></Button>
       </GridLayout>
     </template>
   </ListView>
