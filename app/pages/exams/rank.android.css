@@ -19,3 +19,12 @@ GridLayout Label {
 .value {
   font-size: 23;
 }
+
+.rank {
+  font-size: 13;
+  padding: 3;
+  border-radius: 12;
+  width: 21;
+  text-align: center;
+  vertical-align: middle;
+}
