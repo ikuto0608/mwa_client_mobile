@@ -21,7 +21,6 @@ declare var UIColor: any;
 })
 export class ExamsRankComponent implements OnInit {
   public ranks: any;
-  public isLoading = false;
   public numberOfPerfectRank: Array<any>;
   public timeOfPerfectRank: Array<any>;
 
@@ -32,7 +31,6 @@ export class ExamsRankComponent implements OnInit {
 
   ngOnInit() {
     let id = +this.route.snapshot.params['id'];
-    this.isLoading = true;
     this.page.actionBarHidden = true;
 
     this.examService

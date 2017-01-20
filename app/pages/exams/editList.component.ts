@@ -16,20 +16,17 @@ declare var UIColor: any;
 })
 export class ExamsEditListComponent implements OnInit {
   public exams: any;
-  public isLoading = false;
 
   constructor(public router: Router, public examService: ExamService) {
   }
 
   ngOnInit() {
-    this.isLoading = true;
-
     this.examService
         .findByUserId()
         .subscribe(
-          (data) => this.exams = data.map(examJson => Exam.toExam(examJson)),
-          (err) => console.log(err),
-          () => this.isLoading = false
+          data => this.exams = data.map(examJson => Exam.toExam(examJson)),
+          err => console.log(err),
+          () => console.log('done')
         )
   }
 

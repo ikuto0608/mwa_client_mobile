@@ -24,6 +24,6 @@
 
 <ActivityIndicator class="main-container main-background-color"
                    colSpan="3"
-                   row="1"
-                   [busy]="isLoading"
+                   row="0"
+                   [busy]="examService.isLoading"
                    [visibility]="isLoading ? 'visible' : 'collapse'"></ActivityIndicator>

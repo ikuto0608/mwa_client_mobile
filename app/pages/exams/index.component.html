@@ -1,5 +1,4 @@
 <!-- <StackLayout class="main-container" colSpan="3" row="0" [gradient]="'#6BF9E0'" [endColor]="'#B6EAE1'"> -->
-
 <StackLayout class="main-container" colSpan="3" row="0">
   <SearchBar id="serach_bar" #searchBar hint="Search Tag..." (propertyChange)="search(searchBar.text)"></SearchBar>
   <ListView (itemLoading)="onItemLoading($event)" [items]="exams | async" class="list-group">
@@ -25,6 +24,6 @@
 
 <ActivityIndicator class="main-container main-background-color"
                    colSpan="3"
-                   row="1"
-                   [busy]="isLoading"
-                   [visibility]="isLoading ? 'visible' : 'collapse'"></ActivityIndicator>
+                   row="0"
+                   [busy]="examService.isLoading"
+                   [visibility]="examService.isLoading ? 'visible' : 'collapse'"></ActivityIndicator>

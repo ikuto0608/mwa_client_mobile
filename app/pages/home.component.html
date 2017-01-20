@@ -74,3 +74,11 @@
           rowspan="3"
           class="icon base-color blue-background"></Button>
 </GridLayout>
+
+<ActivityIndicator class="main-container main-background-color"
+                   colSpan="3"
+                   rowspan="2"
+                   [busy]="userService.isLoading"
+                   [visibility]="userService.isLoading ? 'visible' : 'collapse'"
+                   horizontalAlignment="center"
+                   verticalAlignment="center"></ActivityIndicator>

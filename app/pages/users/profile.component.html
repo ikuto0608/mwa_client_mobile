@@ -54,3 +54,11 @@
 
   </GridLayout>
 </StackLayout>
+
+<ActivityIndicator class="main-container main-background-color"
+                   colSpan="3"
+                   row="0"
+                   [busy]="userService.isLoading"
+                   [visibility]="userService.isLoading ? 'visible' : 'collapse'"
+                   horizontalAlignment="center"
+                   verticalAlignment="center"></ActivityIndicator>
