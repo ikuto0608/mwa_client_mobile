@@ -5,11 +5,11 @@
   "repository": "<fill-your-repository-here>",
   "nativescript": {
     "id": "org.ikuto.memorise",
-    "tns-android": {
-      "version": "2.5.0-next-2016-12-08-1472"
-    },
     "tns-ios": {
       "version": "2.5.0-2017-1-4-2"
+    },
+    "tns-android": {
+      "version": "2.5.0-next-2017-01-06-1571"
     }
   },
   "dependencies": {
