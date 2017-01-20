@@ -14,12 +14,15 @@ export class UserService {
   private loginUrl = Config.apiUrl + 'auth_user/';
   private userUrl = Config.apiUrl + 'users/';
   private authToken = 'auth_token';
+  public isLoading = false;
 
   constructor(private http: Http) {
     this.loggedIn = !!appSettings.getString(this.authToken);
   }
 
   login(user: User) {
+    this.isLoading = true;
+
     let headers = new Headers();
     headers.append("Content-Type", "application/json");
 
@@ -30,12 +33,16 @@ export class UserService {
                )
                .map((res) => res.json())
                .map((res) => {
+                 this.isLoading = false;
                  if (res.success) {
                    appSettings.setString(this.authToken, res[this.authToken]);
                    this.loggedIn = true;
                  }
                })
-               .catch(err => this.handleErrors(err.json()));
+               .catch(err => {
+                 this.isLoading = false;
+                 return this.handleErrors(err.json());
+               });
   }
 
   logout() {
@@ -48,26 +55,48 @@ export class UserService {
   }
 
   getRecords() {
+    this.isLoading = true;
+
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     let authToken = appSettings.getString('auth_token');
     headers.append('Authorization', `Bearer ${authToken}`);
 
-    return this.http.get(this.userUrl + 'records', { headers })
-               .map(res => res.json());
+    return this.http
+               .get(this.userUrl + 'records', { headers })
+               .map(res => {
+                 this.isLoading = false;
+                 return res.json();
+               })
+               .catch(err => {
+                 this.isLoading = false;
+                 return this.handleErrors(err.json());
+               });
   }
 
   getProfile() {
+    this.isLoading = true;
+
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     let authToken = appSettings.getString('auth_token');
     headers.append('Authorization', `Bearer ${authToken}`);
 
-    return this.http.get(this.userUrl + 'show', { headers })
-               .map(res => res.json());
+    return this.http
+               .get(this.userUrl + 'show', { headers })
+               .map(res => {
+                 this.isLoading = false;
+                 return res.json();
+               })
+               .catch(err => {
+                 this.isLoading = false;
+                 return this.handleErrors(err.json());
+               });
   }
 
   latestHistory(examId: number) {
+    this.isLoading = true;
+
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     let authToken = appSettings.getString('auth_token');
@@ -75,10 +104,19 @@ export class UserService {
 
     return this.http
                .get(this.userUrl + 'latest_history/' + examId, { headers })
-               .map(res => res.json());
+               .map(res => {
+                 this.isLoading = false;
+                 return res.json();
+               })
+               .catch(err => {
+                 this.isLoading = false;
+                 return this.handleErrors(err.json());
+               });
   }
 
   register(user: User) {
+    this.isLoading = true;
+
     let body = JSON.stringify({ user: {
                                   name: user.name,
                                   email: user.email,
@@ -87,15 +125,20 @@ export class UserService {
                               }});
     let headers = new Headers({'Content-Type': 'application/json'});
 
-    return this.http.post(this.userUrl, body, {headers})
+    return this.http
+               .post(this.userUrl, body, {headers})
                .map(res => res.json())
                .map((res) => {
+                 this.isLoading = false;
                  if (res.success) {
                    appSettings.setString('auth_token', res.auth_token);
                    this.loggedIn = true;
                  }
                })
-               .catch(err => this.handleErrors(err.json()));
+               .catch(err => {
+                 this.isLoading = false;
+                 return this.handleErrors(err.json());
+               });
   }
 
   handleErrors(err) {

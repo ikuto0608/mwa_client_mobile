@@ -1,6 +1,11 @@
 <!-- <StackLayout class="main-container" colSpan="3" row="0" [gradient]="'#6BF9E0'" [endColor]="'#B6EAE1'"> -->
-
 <StackLayout class="main-container" colSpan="3" row="0">
+  <ActivityIndicator class="main-container main-background-color"
+                     columns="*"
+                     rows="*7,*93"
+                     [busy]="isLoading"
+                     [visibility]="examService.isLoading ? 'visible' : 'collapse'"></ActivityIndicator>
+
   <GridLayout *ngIf="!editting" columns="*" rows="*7,*93">
     <GridLayout row="0" columns="*,*,*,*,*" rows="*" class="base-background-color">
       <Label (tap)="updateExam()" col="2" text="&#xe960;" horizontalAlignment="center" class="icon save sub-color"></Label>
@@ -104,5 +109,10 @@
                 (returnPress)="submit($event)"></TextView>
     </StackLayout>
   </GridLayout>
-
 </StackLayout>
+
+<ActivityIndicator class="main-container main-background-color"
+                   colSpan="3"
+                   row="0"
+                   [busy]="examService.isLoading"
+                   [visibility]="examService.isLoading ? 'visible' : 'collapse'"></ActivityIndicator>

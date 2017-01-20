@@ -23,8 +23,8 @@
 
 <ActivityIndicator class="main-container main-background-color"
                    colSpan="3"
-                   row="1"
-                   [busy]="isLoading"
-                   [visibility]="isLoading ? 'visible' : 'collapse'"
+                   row="0"
+                   [busy]="examService.isLoading"
+                   [visibility]="examService.isLoading ? 'visible' : 'collapse'"
                    horizontalAlignment="center"
                    verticalAlignment="center"></ActivityIndicator>
