@@ -45,6 +45,13 @@ export class ExamsCreateComponent implements OnInit {
     this.exam.topics.push(new Topic());
   }
 
+  splitSentence(value: string, index: number) {
+    this.exam.topics[index].questionArray = []
+    value.split(' ').forEach((word) => {
+      this.exam.topics[index].questionArray.push(word)
+    })
+  }
+
   setAnswer(indexOfWord: number) {
     var index = this.exam.topics[this.indexOfTopic].indexOfAnswerArray.indexOf(indexOfWord)
     if (index < 0) {
@@ -98,7 +105,7 @@ export class ExamsCreateComponent implements OnInit {
     this.examService
         .save(this.exam.toJson())
         .subscribe(
-          data => console.log(JSON.stringify(data)),
+          data => console.log('created'),
           err => console.log(err),
           () => dialog.alert(options).then(() => { console.log("Created!"); })
         );
