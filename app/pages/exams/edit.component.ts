@@ -52,6 +52,13 @@ export class ExamsEditComponent implements OnInit {
     this.exam.topics.push(new Topic());
   }
 
+  splitSentence(value: string, index: number) {
+    this.exam.topics[index].questionArray = []
+    value.split(' ').forEach((word) => {
+      this.exam.topics[index].questionArray.push(word)
+    })
+  }
+  
   setAnswer(indexOfWord: number) {
     let index = this.exam.topics[this.indexOfTopic].indexOfAnswerArray.indexOf(indexOfWord);
     if (index < 0) {
@@ -92,7 +99,7 @@ export class ExamsEditComponent implements OnInit {
       if (tag) {
         let t = new Tag();
         t.name = tag;
-        this.exam.tags.push(t);        
+        this.exam.tags.push(t);
       }
     });
 

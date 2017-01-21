@@ -78,6 +78,7 @@
     <StackLayout row="1" class="form">
       <Label class="label" text="Question" textWrap="true"></Label>
       <TextView [(ngModel)]="exam.topics[indexOfTopic].question"
+                (ngModelChange)="splitSentence($event, indexOfTopic)"
                 hint="Question"
                 class="input input-border"
                 returnKeyType="done"
