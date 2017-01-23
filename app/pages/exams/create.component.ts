@@ -46,19 +46,19 @@ export class ExamsCreateComponent implements OnInit {
   }
 
   splitSentence(value: string, index: number) {
-    this.exam.topics[index].questionArray = []
+    this.exam.topics[index].questionArray = [];
     value.split(' ').forEach((word) => {
-      this.exam.topics[index].questionArray.push(word)
-    })
+      this.exam.topics[index].questionArray.push(word);
+    });
   }
 
   setAnswer(indexOfWord: number) {
-    var index = this.exam.topics[this.indexOfTopic].indexOfAnswerArray.indexOf(indexOfWord)
+    var index = this.exam.topics[this.indexOfTopic].indexOfAnswerArray.indexOf(indexOfWord);
     if (index < 0) {
-      this.exam.topics[this.indexOfTopic].indexOfAnswerArray.push(indexOfWord)
-      this.exam.topics[this.indexOfTopic].indexOfAnswerArray.sort()
+      this.exam.topics[this.indexOfTopic].indexOfAnswerArray.push(indexOfWord);
+      this.exam.topics[this.indexOfTopic].indexOfAnswerArray.sort();
     } else {
-      this.exam.topics[this.indexOfTopic].indexOfAnswerArray.splice(index, 1)
+      this.exam.topics[this.indexOfTopic].indexOfAnswerArray.splice(index, 1);
     }
   }
 

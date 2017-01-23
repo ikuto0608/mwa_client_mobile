@@ -29,6 +29,7 @@ export class Exam {
     if (this.topics) {
       this.topics.forEach((topic) => {
         topics.push({
+                      id: topic.id,
                       question: topic.question,
                       description: topic.description,
                       question_array: topic.questionArray,

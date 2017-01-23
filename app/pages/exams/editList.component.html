@@ -8,7 +8,7 @@
 
     <ListView (itemLoading)="onItemLoading($event)" *ngIf="exams" row="1" [items]="exams" class="list-group">
       <template let-exam="item">
-        <GridLayout (tap)="editExam(exam.id)" columns="auto,auto,*,*,*,*,*,auto" class="list-group-item">
+        <GridLayout (tap)="editExam(exam.id)" columns="auto,auto,*,*,*" class="list-group-item">
           <Label col="0" [text]="exam.name[0] | uppercase" class="initial_letter sub-background-color base-color"></Label>
           <Label col="1" [text]="exam.name" class="title"></Label>
           <Label *ngFor="let tag of exam.tags; let indexOfTag = index;"
