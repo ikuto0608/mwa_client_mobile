@@ -82,17 +82,17 @@
 
       <StackLayout *ngIf="exam.topics[indexOfTopic].question">
         <Label class="label" [text]="suggestAnswerChoice(indexOfTopic)" textWrap="true" class="red"></Label>
-        <FlexboxLayout *ngFor="let line of (exam.topics[indexOfTopic].question.split(' ').length / 5) | times">
-          <Button *ngFor="let word of exam.topics[indexOfTopic].question.split(' ').slice(line * 5, (line * 5) + 5); let indexOfWord = index"
-                  (tap)="setAnswer(indexOfWord + (line * 5))"
+        <FlexboxLayout flexWrap="wrap">
+          <Button *ngFor="let word of exam.topics[indexOfTopic].questionArray; let indexOfWord = index"
+                  (tap)="setAnswer(indexOfWord)"
                   class="word base-color"
                   [ngClass]="{
-                                'blue-background': !isAnswerSelected(indexOfWord + (line * 5)),
-                                'red-background': isAnswerSelected(indexOfWord + (line * 5))
+                                'blue-background': !isAnswerSelected(indexOfWord),
+                                'red-background': isAnswerSelected(indexOfWord)
                               }"
                   [class.selected]="isAnswerSelected(indexOfWord)"
                   [text]="word"
-                  flexGrow="1"></Button>
+                  [order]="indexOfWord"></Button>
         </FlexboxLayout>
       </StackLayout>
 
