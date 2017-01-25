@@ -13,3 +13,7 @@ GridLayout.list-group-item Label.tag {
 .add-button {
   padding: 0 10;
 }
+
+.first-message {
+  margin: 70 10;
+}
