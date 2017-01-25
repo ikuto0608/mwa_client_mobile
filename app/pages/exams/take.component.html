@@ -4,7 +4,7 @@
   <GridLayout *ngIf="exam" columns="*,*" rows="*,*,*,*,*,*,*" toggleNavButton>
     <Label [text]="exam.questions[questionIndex].sentence" col="0" row="0" colSpan="2" rowSpan="3" class="question" textWrap="true" verticalAlignment="center"></Label>
     <Button *ngFor="let answer of exam.questions[questionIndex].answers; let indexOfAnswer = index;"
-            [text]="answer.join(' ')"
+            [text]="answer.join(', ')"
             (tap)="chooseAnswer(indexOfAnswer)"
             [col]="setColumn(indexOfAnswer)"
             [row]="setRow(indexOfAnswer)"
