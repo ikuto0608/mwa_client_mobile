@@ -27,7 +27,8 @@ Button.topic, Button.add-topic {
   height: 100;
 }
 
-Label.back {
-  margin: 17;
-  font-size: 25;
+Label.save, Label.back {
+  margin: 10;
+  font-size: 14;
+  padding: 0 10;
 }

@@ -8,7 +8,7 @@
 
   <GridLayout *ngIf="!editting" columns="*" rows="*7,*93">
     <GridLayout row="0" columns="*,*,*,*,*" rows="*" class="base-background-color">
-      <Label (tap)="updateExam()" col="2" text="&#xe960;" horizontalAlignment="center" class="icon save sub-color"></Label>
+      <Label (tap)="updateExam()" col="2" text="&#xe960;" horizontalAlignment="center" class="icon save sub-color save-button"></Label>
     </GridLayout>
 
     <StackLayout *ngIf="exam" row="1" class="form">

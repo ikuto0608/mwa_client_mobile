@@ -23,4 +23,5 @@ Label.plus {
 Label.save, Label.back {
   margin: 10;
   font-size: 14;
+  padding: 0 10;
 }

@@ -9,3 +9,7 @@ GridLayout.list-group-item Label.initial_letter {
 GridLayout.list-group-item Label.tag {
   text-align: center;
 }
+
+.add-button {
+  padding: 0 10;
+}
