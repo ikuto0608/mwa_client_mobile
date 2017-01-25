@@ -15,12 +15,13 @@ declare var UIColor: any;
   providers: [ExamService],
 })
 export class ExamsEditListComponent implements OnInit {
-  public exams: any;
+  public exams: Array<Exam>;
 
   constructor(public router: Router, public examService: ExamService) {
   }
 
   ngOnInit() {
+    this.exams = [];
     this.examService
         .findByUserId()
         .subscribe(

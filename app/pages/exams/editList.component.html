@@ -3,10 +3,10 @@
 <StackLayout class="main-container" colSpan="3" row="0">
   <GridLayout columns="*" rows="*7,*93">
     <GridLayout row="0" columns="*,*,*,*,*" rows="*" class="base-background-color">
-     <Label (tap)="newExam()" col="4" text="&#xea0a;" horizontalAlignment="right" verticalAlignment="center" class="icon new sub-color"></Label>
+     <Label (tap)="newExam()" col="4" text="&#xea0a;" horizontalAlignment="right" verticalAlignment="center" class="icon new sub-color add-button"></Label>
     </GridLayout>
 
-    <ListView (itemLoading)="onItemLoading($event)" *ngIf="exams" row="1" [items]="exams" class="list-group">
+    <ListView (itemLoading)="onItemLoading($event)" *ngIf="exams.length > 0" row="1" [items]="exams" class="list-group">
       <template let-exam="item">
         <GridLayout (tap)="editExam(exam.id)" columns="auto,auto,*,*,*" class="list-group-item">
           <Label col="0" [text]="exam.name[0] | uppercase" class="initial_letter sub-background-color base-color"></Label>
@@ -18,6 +18,12 @@
         </GridLayout>
       </template>
     </ListView>
+    <StackLayout *ngIf="exams.length == 0" row="1">
+      <Label text="You haven't created your exam yet. You can start it at the add button of top right of this page."
+             textWrap="true"
+             horizontalAlignment="center"
+             class="first-message"></Label>
+    </StackLayout>
   </GridLayout>
 </StackLayout>
 
