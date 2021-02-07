@@ -1,8 +1,8 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { Page } from "ui/page";
 import dialog = require('ui/dialogs');
-import { ItemEventData } from 'ui/list-view';
+import { ListView, ItemEventData } from 'ui/list-view';
 
 import '../../rxjs-extensions';
 import { Subject } from 'rxjs/Subject';
@@ -25,10 +25,15 @@ declare var UIColor: any;
 })
 export class ExamsIndexComponent implements OnInit, AfterViewInit {
   @ViewChild("searchBar") searchBar: any;
+  @ViewChild("examList") examListRef: ElementRef;
 
+  private get examList(): ListView {
+    return this.examListRef.nativeElement;
+  }
   public exams: any;
   public tags: any;
   private searchTerms = new Subject<string>();
+  public pageIndex: number = 0;
 
   constructor(public router: Router,
               public examService: ExamService,
@@ -51,6 +56,11 @@ export class ExamsIndexComponent implements OnInit, AfterViewInit {
                        console.log(error);
                        return this.examService.all();
                      });
+
+    this.examList.on(ListView.loadMoreItemsEvent, () => {
+      this.pageIndex++;
+      console.log(this.pageIndex);
+    }, this);
   }
 
   ngAfterViewInit() {
